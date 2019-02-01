@@ -1,0 +1,29 @@
+body {
+    background-color: #918A8A;  
+  }
+  
+  h4 {
+      
+  }
+  
+  #registro{
+   margin-left: 35%;
+   margin-top: 3%;
+  
+  }
+  
+  #email,#contrasena,#email2,#contrasena2 {
+   width: 60%;
+   height: 20%;
+   margin-left: 25%;
+   margin-top: 2%;
+  
+  }
+ 
+  
+  #registrar {
+      width: 30%;
+      height: 20%;
+      margin-left: 42%;
+      margin-top: 2%;
+  }
