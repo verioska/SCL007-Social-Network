@@ -1,13 +1,10 @@
 body {
     background-color: #918A8A;  
-  }
-  
- 
-  .menu{
+}
+.menu{
     text-align:center;
     font-size: 18px;
     padding: 2% 2%;
-     
 }
 
  /* #registro{
@@ -23,42 +20,28 @@ body {
    margin-top: 2%;
   
   }*/
- 
-  
-  #registrar {
-      width: 30%;
-      height: 20%;
-      margin-left: 42%;
-      margin-top: 2%;
-  }
-
-  .menu{
-    text-align:center;
-    font-size: 18px;
-    padding: 2% 2%;
-     
+#registrar {
+  width: 30%;
+  height: 20%;
+  margin-left: 42%;
+  margin-top: 2%;
 }
-
 .fa, .fas {
-    
-    height: 5px;
+  height: 5px;
 }
-
-
- header {
-        background-color:#A40C0C;
-        height: 70px;
+header {
+  background-color:#A40C0C;
+  height: 70px;
         
 }
 #page2{
     display: none;
 }
 .icono{
-    
-    color: white;
-    padding: 3%;
+  color: white;
+  padding: 3%;
 }
 #menumain{
     padding: 0px;
     margin-left: 1%;
-  } 
+} 
