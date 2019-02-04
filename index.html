@@ -8,24 +8,27 @@
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="grilla.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
- 
+    
+    
+    <script src="https://www.gstatic.com/firebasejs/5.8.1/firebase.js"></script>
+    <script>
+      // Initialize Firebase
+      var config = {
+        apiKey: "AIzaSyDHLmYAZ629IFPCNCCmioTKsnoLUAsRAo8",
+    authDomain: "red-social-1d44f.firebaseapp.com",
+    databaseURL: "https://red-social-1d44f.firebaseio.com",
+    projectId: "red-social-1d44f",
+    storageBucket: "red-social-1d44f.appspot.com",
+    messagingSenderId: "1051319292583"
+      };
+      firebase.initializeApp(config);
+      </script>
 
-  <script src="https://www.gstatic.com/firebasejs/5.8.1/firebase.js"></script>
- <script>
-  // Initialize Firebase
-  var config = {
-    apiKey: "AIzaSyCtzPjsndiAnHpabrGI1BwiyFZ22yTDQmA",
-    authDomain: "usuario-cbda6.firebaseapp.com",
-    databaseURL: "https://usuario-cbda6.firebaseio.com",
-    projectId: "usuario-cbda6",
-    storageBucket: "usuario-cbda6.appspot.com",
-    messagingSenderId: "905659733083"
-  };
-  firebase.initializeApp(config);
- </script>
-
- </head>
+</head>
 <body id="body">
+    <!-- Inicialize Firestore-->
+    <script src="https://www.gstatic.com/firebasejs/4.12.1/firebase.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/4.12.1/firebase-firestore.js"></script> 
    <div id="page1">
      <h1>Sabores</h1>
      <div class="contenedor">
@@ -109,9 +112,23 @@
           <div id="page7">
               <div id="user_page"></div>
           </div>
+
+          
+          <div id="page8">
+            <div id="perfil_user"></div>
+            <h4>Informacion de perfil</h4>
+            <input id="name" type="name" placeholder="Ingresa tu nombre de perfil">
+            <input id="age" type="text" placeholder="Ingresa tu edad">
+            <input id="country" type="text" placeholder="Ingresa tu pais">
+            <input id="biography" type="text" placeholder="Ingresa tu Biografia">
+            <button id="guardar" onclick="guardar()">Guardar</button>
+        </div>
+
+
     <script src="main.js"></script>
     <script src="logic.js"></script>
     <script src="dom.js"></script>
+    <script src="firestore.js"></script>
     <script src="style.css"></script>
 
 </body>
