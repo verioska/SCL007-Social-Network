@@ -34,7 +34,7 @@ header {
   height: 70px;
         
 }
-#page2{
+#page2, #page8{
     display: none;
 }
 .icono{
@@ -45,3 +45,12 @@ header {
     padding: 0px;
     margin-left: 1%;
 } 
+#name,#age,#country, #biography, #guardar{
+  display: block;
+  margin: 25px; 
+}
+#biography{
+
+  width: 20%;
+  height: 100px;
+}

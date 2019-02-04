@@ -3,7 +3,7 @@ document.getElementById("ingresar").addEventListener("click",(event) => {
     document.getElementById("page2").style.display="block"
     document.getElementById("page1").style.display="none"
     document.getElementById("body").style.background="white";
-
+    document.getElementById("page8").style.display="block"
 })
 
 document.getElementById("home").addEventListener("click",(event) => {
