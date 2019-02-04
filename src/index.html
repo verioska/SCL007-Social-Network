@@ -5,6 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="grilla.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+ 
 
   <script src="https://www.gstatic.com/firebasejs/5.8.1/firebase.js"></script>
  <script>
@@ -21,33 +25,87 @@
  </script>
 
  </head>
-<body>
-    <h4>Registro de Usuarios</h4>
-    <input id="email" type="email" placeholder="Ingresa email">
-    <br><input id="contrasena" type="password" placeholder="Ingresa contraseña"></br>
-    <br><button onclick="registrar()">Enviar</button>
+<body id="body">
 
-     <h4>Ingreso de Usuarios</h4>
-    <br><input id="email2" type="email" placeholder="Ingresa email">
-    <br><input id="contrasena2" type="password" placeholder="Ingresa contraseña"></br>
-    <br><button onclick="ingreso()">Acceder</button>
+    <header id="page2">   
+        <div  class="container">
+          <div  class="row" >
+            <div class="col-12 " id="menumain">
+                 <a href="#" id="home" class="menu"><i class="fas fa-home icono" ></i></a>
+              <a href="#" id="lupa" class="menu"><i class="fas fa-search icono"></i></a>
+              <a href="#" id="mas" class="menu"><i class="far fa-plus-square icono"></i></a>
+              <a href="#" id="favoritos" class="menu"><i class="far fa-star icono"></i></a>
+              <a href="#" id="user" class="menu"><i class="far fa-user icono"></i></a>
+            </div>
+          </div>
+        </div>
+      </header>
+      
+      
+       <div id="page3">
+         <div id="home_page"></div>
+       </div>
+    
+       <div id="page4">
+        <div id="lupa_page"></div>
+       </div>
+    
+       <div id="page5">
+          <div id="mas_page"></div>
+        </div>
+    
+        <div id="page6">
+            <div id="favoritos_page"></div>
+        </div>
+    
+        <div id="page7">
+            <div id="user_page"></div>
+        </div>
+    
+        
+    <div id="page1">  
+     <h1>Sabores</h1>
+     <div class="contenedor">
+       <div  class="row">
+         <div class="col-10" id="cajas">
+      
+          <h4>Registro de Usuarios</h4>
+          <input id="email" type="email" placeholder="Ingresa email">
+          <br><input id="contrasena" type="password" placeholder="Ingresa contraseña"></br>
+          <button id="enviar"onclick="registrar()">Enviar</button>
+          
+          <div id="ingreso_usuarios">
+          <h4>Ingreso de Usuarios</h4>
+          <br><input id="email2" type="email" placeholder="Ingresa email">
+          <br><input id="contrasena2" type="password" placeholder="Ingresa contraseña"></br>
+          <button id="ingresar" onclick="ingreso()">Acceder</button>
+          </div>
 
-     <div id="contenido"></div>
+          <div id="contenido"></div>
 
-     <br><button id="Google">Google SingIn</button></br>
+          <br><button id="Google">Google SingIn</button></br>
 
-     <br><button id="Facebook">Facebook SingIn</button>
+          <br><button id="Facebook">Facebook SingIn</button>
 
-     <script>
-    document.getElementById('Google').addEventListener("click", function(){
-      var provider = new firebase.auth.GoogleAuthProvider();
-      firebase.auth().signInWithPopup(provider).then(function(user){
-         console.log(user);
-         }).catch(function(error){
-          console.log(error);
-       })
+          <script>
+          document.getElementById('Google').addEventListener("click", function(){
+            var provider = new firebase.auth.GoogleAuthProvider();
+            firebase.auth().signInWithPopup(provider).then(function(user){
+              console.log(user);
+              }).catch(function(error){
+                console.log(error);
+            })
+        
+
+            
+           
     })
     </script>
+         </div>
+        </div>
+      </div>
+    </div>
+
     <script>
     document.getElementById('Facebook').addEventListener("click", function(){
       var provider= new firebase.auth.FacebookAuthProvider();
@@ -56,10 +114,12 @@
          }).catch(function(error){
           console.log(error);
     })
+
   })
     </script>
     <script src="main.js"></script>
     <script src="logic.js"></script>
+    <script src="dom.js"></script>
     <script src="style.css"></script>
 
  </body>
