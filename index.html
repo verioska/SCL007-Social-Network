@@ -1,1 +1,66 @@
-hola
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+
+  <script src="https://www.gstatic.com/firebasejs/5.8.1/firebase.js"></script>
+ <script>
+  // Initialize Firebase
+  var config = {
+    apiKey: "AIzaSyCtzPjsndiAnHpabrGI1BwiyFZ22yTDQmA",
+    authDomain: "usuario-cbda6.firebaseapp.com",
+    databaseURL: "https://usuario-cbda6.firebaseio.com",
+    projectId: "usuario-cbda6",
+    storageBucket: "usuario-cbda6.appspot.com",
+    messagingSenderId: "905659733083"
+  };
+  firebase.initializeApp(config);
+ </script>
+
+ </head>
+<body>
+    <h4>Registro de Usuarios</h4>
+    <input id="email" type="email" placeholder="Ingresa email">
+    <br><input id="contrasena" type="password" placeholder="Ingresa contraseña"></br>
+    <br><button onclick="registrar()">Enviar</button>
+
+     <h4>Ingreso de Usuarios</h4>
+    <br><input id="email2" type="email" placeholder="Ingresa email">
+    <br><input id="contrasena2" type="password" placeholder="Ingresa contraseña"></br>
+    <br><button onclick="ingreso()">Acceder</button>
+
+     <div id="contenido"></div>
+
+     <br><button id="Google">Google SingIn</button></br>
+
+     <br><button id="Facebook">Facebook SingIn</button>
+
+     <script>
+    document.getElementById('Google').addEventListener("click", function(){
+      var provider = new firebase.auth.GoogleAuthProvider();
+      firebase.auth().signInWithPopup(provider).then(function(user){
+         console.log(user);
+         }).catch(function(error){
+          console.log(error);
+       })
+    })
+    </script>
+    <script>
+    document.getElementById('Facebook').addEventListener("click", function(){
+      var provider= new firebase.auth.FacebookAuthProvider();
+      firebase.auth().signInWithPopup(provider).then(function(result){
+         console.log(result);
+         }).catch(function(error){
+          console.log(error);
+    })
+  })
+    </script>
+    <script src="main.js"></script>
+    <script src="logic.js"></script>
+    <script src="style.css"></script>
+
+ </body>
+</html>
