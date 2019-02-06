@@ -1,56 +1,7 @@
-body {
-    background-color: #918A8A;  
-}
-.menu{
-    text-align:center;
-    font-size: 18px;
-    padding: 2% 2%;
-}
+.imgRecipe{
 
- /* #registro{
-   margin-left: 35%;
-   margin-top: 3%;
-  
-  }
-  
-  #email,#contrasena,#email2,#contrasena2 {
-   width: 60%;
-   height: 20%;
-   margin-left: 25%;
-   margin-top: 2%;
-  
-  }*/
-#registrar {
-  width: 30%;
-  height: 20%;
-  margin-left: 42%;
-  margin-top: 2%;
+    cursor: e-resize;
 }
-.fa, .fas {
-  height: 5px;
-}
-header {
-  background-color:#A40C0C;
-  height: 70px;
-        
-}
-#page2, #page8{
+#page1{
     display: none;
-}
-.icono{
-  color: white;
-  padding: 3%;
-}
-#menumain{
-    padding: 0px;
-    margin-left: 1%;
-} 
-#name,#age,#country, #biography, #guardar{
-  display: block;
-  margin: 25px; 
-}
-#biography{
-
-  width: 20%;
-  height: 100px;
 }
