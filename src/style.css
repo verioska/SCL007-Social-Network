@@ -76,15 +76,26 @@ input{
 
 
 
-body {
+/* body {
     font-family: Arial, Helvetica, sans-serif;
+  } */
+  /* .title-class{
+      margin-top: 15px;
+  } */
+  .container-fluid {
+    display: flex;
+    flex-direction: row;
+    align-content: flex-end;
+    flex-wrap: wrap;
+    align-items: baseline;
   }
   
   .flip-card {
     background-color: transparent;
     width: 300px;
-    height: 300px;
+    height: 500px;
     perspective: 1000px;
+    font-family: Arial, Helvetica, sans-serif;
   }
   
   .flip-card-inner {
@@ -115,8 +126,8 @@ body {
   }
   
   .flip-card-back {
-    background-color: #2980b9;
-    color: white;
+    background-color: #bbb;
+    color:  black;
     transform: rotateY(180deg);
     z-index: 1;
   }
