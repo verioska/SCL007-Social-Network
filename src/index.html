@@ -26,7 +26,28 @@
         </div>
         <div>
          <i id="facebook" class="fab fa-facebook-f icono_facebook"></i>
+         <script>
+            document.getElementById('facebook').addEventListener("click", function(){
+              var provider= new firebase.auth.FacebookAuthProvider();
+              firebase.auth().signInWithPopup(provider).then(function(result){
+                console.log(result);
+              }).catch(function(error){
+                console.log(error);
+              })
+            })
+          </script>
          <i id="google" class="fab fa-google  icono_google"></i>
+         <script>
+            document.getElementById('google').addEventListener("click", function(){
+              var provider = new firebase.auth.GoogleAuthProvider();
+              firebase.auth().signInWithPopup(provider).then(function(user){
+                alert("Google SignIn");
+                console.log(user);
+              }).catch(function(error){
+                console.log(error);
+              })
+            })
+          </script>
           
          
         </div>
@@ -37,11 +58,18 @@
       <h1>¡Bienvenid@ a SABORES</h1>
       <p>Nombre de tu receta</p>
       <input id="titleRecipe" type="text">
+      <p>Porciones</p>
+     <input id="idServes" type="text">
+     <p>Tiempo de Preparación</p>
+     <input id="idTime" type="text">
+     <p>costo estimado</p>
+     <input id="idCost" type="text">
+     <p>ingredientes</p>
+     <textarea  id="idIngredients" name="ingredients" cols="30" rows="10"></textarea>
+     <p>Preparacion de tu receta</p>
+     <textarea  id="insRecipes" name=""  cols="30" rows="10"></textarea>
+     <p>Imagen</p>
 
-      <p>Preparacion de tu receta</p>
-      <textarea  id="insRecipes" name="" id="" cols="30" rows="10"></textarea>
-      <p>Imagen</p>
-      
       <progress value="0" max="100" id="uploader">0%</progress><br>
         <input type="file" value="upload" id="fileButton" name="elegir archivo"/>
 
