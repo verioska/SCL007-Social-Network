@@ -1,17 +1,36 @@
 <html>
   <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="grillas.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
   </head>
   <body>
     <div id="loginOrRegister">
-      <h1>Registrate o inicia sesión</h1>
-      <form action="javascript:void(0)">
-        <p>Email</p>
-        <input id="emailTextfield" type="email">
-        <p>Contraseña</p>
-        <input id="passwordTextfield" type="password">
-        <button id="registerButton">Registrate</button>
-        <button id="loginButton">Logueate</button>
+      <h1 id="title">Sabores</h1>
+      <form id="registry" action="javascript:void(0)">
+        <div class="inputWithIcon">
+          <input id="emailTextfield"  type="email" class="field"  placeholder="Ingresa email" >
+          <i class="fas fa-envelope"></i>
+
+        </div>
+        <div class="inputWithIcon"> 
+          <input id="passwordTextfield" type="password" class="field"   placeholder="password">
+          <i class="fas fa-unlock-alt"></i>
+        </div>
+        <div id="button">
+          <button id="registerButton">Registrate</button>
+          <button id="loginButton">Logueate</button>
+        </div>
+        <div>
+         <i id="facebook" class="fab fa-facebook-f icono_facebook"></i>
+         <i id="google" class="fab fa-google  icono_google"></i>
+          
+         
+        </div>
+
       </form>
     </div>
     <div id="app">

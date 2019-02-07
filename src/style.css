@@ -1,3 +1,7 @@
+body {
+    background-color:#7E0000;  
+}
+
 .imgRecipe{
 
     cursor: e-resize;
@@ -5,3 +9,71 @@
 #page1{
     display: none;
 }
+#registry{
+    margin-left: 515px;
+    margin-top: 3%
+  }
+h1{
+    margin-left: 570px;
+    margin-top: 15%;
+    width: auto;
+	color:#F6F6F6;
+    font-size:30px;
+	text-transform: uppercase;	
+}
+
+#button{
+    margin-left: 20px;
+    margin-top: 1%;
+}
+#registerButton,#loginButton{
+  border-radius: 4px;
+  background-color:white;
+  border: none;
+  color: black;
+  text-align: center;
+  font-size: 15px;
+  padding: 3px;
+  width: 80px;
+  cursor: pointer;
+}
+#passwordTextfield{
+    margin-top: 1%;  
+}
+#registerButton{
+    margin-top: 3%;
+}
+#facebook{
+    color:blue;
+    padding: 10%;
+    margin-left: 60px;
+}
+#google{
+    color:yellow;
+    padding: 3%;
+    margin-left: -15px;
+}
+form{
+    background-color:#918A8A;
+    width: 250px;
+    margin: 0 auto;
+    padding: 2%;
+    border-radius: 10px;
+}
+input{
+    outline: none;
+    border-radius: 5px;
+}
+.field{
+ width: 200px
+    
+}
+
+.inputWithIcon i{
+    position: relative;
+    top: -18px;
+    margin-left: 175px;
+    
+   
+}
+
