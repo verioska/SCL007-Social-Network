@@ -55,12 +55,19 @@ const saveRecipe = (recipeTitle, recipeImage, ownerName, insRecipe) => {
       title : recipeTitle,
       image : recipeImage,
       owner : ownerName,
-      recipes: insRecipe
+      recipes: insRecipe,
+      Key: newRecipeKey
 
 
     });
 };
   
+const deletePost = (id) => {
+    let userRef = firebase.database().ref('recipe/' + id);
+    userRef.remove()
+}
+
+
 
 
 const readRecipes = (onRecipeChange) => {
@@ -167,32 +174,37 @@ const saveRecipesIntoDatabase = () => {
 }
 
 const readRecipesFromDatabase = () => {
-  readRecipes((recipe)=>{
-    recipeContainer.innerHTML = 
-    `<h3>${recipe.val().title}</h3>
-    <button id="imag"><img id="link"  src="${recipe.val().image}" style="width:300px"/></button>
-     `+recipeContainer.innerHTML; 
-    console.log(newRecipeKey);
-     document.getElementById("imag").addEventListener('click', function(){
-        document.getElementById("page1").style.display="block"
-        document.getElementById("loginOrRegister").style.display="none"
-        document.getElementById("app").style.display="none"
-        page1.innerHTML = 
-        `<h2>SABORES</h2>
-        <h3>${recipe.val().title}</h3>
-        <button id="imag"><img id="link"  src="${recipe.val().image}" style="width:300px"/></button>
-        <p> ${recipe.val().recipes}</p>
-         `+page1.innerHTML; 
-    });
-  });
-  
+    readRecipes((recipe)=>{
+        recipeContainer.innerHTML = 
+        `<h3>${recipe.val().title}</h3>
+        <button class="imgB"><img id="link"  src="${recipe.val().image}" style="width:300px"/></button>
+        `+recipeContainer.innerHTML; 
+        document.querySelectorAll('.imgB').forEach(function(element) {
+            element.addEventListener('click', function(){
+                alert("holaMundo");
+                document.getElementById("page1").style.display="block"
+                document.getElementById("loginOrRegister").style.display="none"
+                document.getElementById("app").style.display="none"
+                page1.innerHTML = 
+                `<h2>SABORES</h2>
+                <h3>${recipe.val().title}</h3>
+                <img id="link" src="${recipe.val().image}" style="width:300px"/>
+                <p> ${recipe.val().recipes}</p>
+                <button id=${recipe.val().Key}>delete</button>
+                `+page1.innerHTML;  
+                document.getElementById(recipe.val().Key).addEventListener('click', deletePost(recipe.val().Key));
+            });
+        });
+    }); 
 }
+
 
 registerButton.addEventListener('click', registerWithEmailAndPassword);
 loginButton.addEventListener('click', loginUserWithEmailAndPassword);
 //nueva
 /* saveUserData.addEventListener('click', saveUserIntoDatabase)  */
 sendRecipe.addEventListener('click', saveRecipesIntoDatabase);
+
 
 
 
