@@ -1,4 +1,6 @@
-document.getElementById("page1").style.display="none"
+
+
+/* document.getElementById("page1").style.display="none" */
 //auth.js
 
 const checkAuthState = (callback) => {
@@ -48,7 +50,7 @@ const loginUser = (email, password) => {
 
 
 let newRecipeKey = "";
-const saveRecipe = (recipeTitle, recipeImage, ownerName, insRecipe) => {
+const saveRecipe = (recipeTitle, recipeImage, ownerName, insRecipe, recipeIngredients, recipeServes, prepTime, recipeCost) => {
     newRecipeKey = firebase.database().ref('recipe/boasfdisfbsfahb').child('likes').push().key;
   
     firebase.database().ref(`recipe/${newRecipeKey}`).set({
@@ -56,16 +58,20 @@ const saveRecipe = (recipeTitle, recipeImage, ownerName, insRecipe) => {
       image : recipeImage,
       owner : ownerName,
       recipes: insRecipe,
-      Key: newRecipeKey
-
+      Key: newRecipeKey,
+      Ingredients: recipeIngredients,
+      serves: recipeServes,
+      time: prepTime,
+      cost: recipeCost,
+        
 
     });
 };
   
-const deletePost = (id) => {
-    let userRef = firebase.database().ref('recipe/' + id);
-    userRef.remove()
-}
+/* const deletePost = (id) => {
+    let recipeRef = firebase.database().ref('recipe/' + id);
+    recipeRef.remove()
+} */
 
 
 
@@ -170,33 +176,61 @@ const saveRecipesIntoDatabase = () => {
   const recipeImage = imgUrl;
   const ownerName = firebase.auth().currentUser.email;
   const insRecipe = insRecipes.value;
-  saveRecipe(recipeTitle, recipeImage, ownerName,insRecipe);
+  const recipeIngredients = idIngredients.value;
+  const recipeServes = idServes.value;
+  const prepTime = idTime.value;
+  const recipeCost = idCost.value;
+  saveRecipe(recipeTitle, recipeImage, ownerName, insRecipe, recipeIngredients, recipeServes, prepTime, recipeCost);
 }
 
 const readRecipesFromDatabase = () => {
     readRecipes((recipe)=>{
         recipeContainer.innerHTML = 
         `<h3>${recipe.val().title}</h3>
-        <button class="imgB"><img id="link"  src="${recipe.val().image}" style="width:300px"/></button>
+        <button id=${recipe.val().Key}><img id="link"  src="${recipe.val().image}" style="width:300px"/></button>
         `+recipeContainer.innerHTML; 
-        document.querySelectorAll('.imgB').forEach(function(element) {
+        /* document.getElementById(recipe.val().Key).addEventListener('click', deletePost(recipe.val().Key)); */ 
+        /* document.querySelectorAll('.imgB').forEach(function(element) {
             element.addEventListener('click', function(){
                 alert("holaMundo");
                 document.getElementById("page1").style.display="block"
                 document.getElementById("loginOrRegister").style.display="none"
                 document.getElementById("app").style.display="none"
+                let recipeRef = firebase.database().ref('recipe/' + recipe.val().Key);
                 page1.innerHTML = 
                 `<h2>SABORES</h2>
                 <h3>${recipe.val().title}</h3>
                 <img id="link" src="${recipe.val().image}" style="width:300px"/>
                 <p> ${recipe.val().recipes}</p>
-                <button id=${recipe.val().Key}>delete</button>
+                
                 `+page1.innerHTML;  
-                document.getElementById(recipe.val().Key).addEventListener('click', deletePost(recipe.val().Key));
+                
             });
-        });
+        }); */
     }); 
 }
+
+const accessRecipesFromDatabase = () => {
+    accessRecipes((id)=>{
+        document.getElementById(id).addEventListener('click', function(){
+            alert("holaMundo");
+            document.getElementById("page1").style.display="block"
+            document.getElementById("loginOrRegister").style.display="none"
+            document.getElementById("app").style.display="none"
+            let recipeRef = firebase.database().ref('recipe/' + id);
+            page1.innerHTML = 
+            `<h2>SABORES</h2>
+            <h3>${recipeRef.val().title}</h3>
+            <img id="link" src="${recipe.val().image}" style="width:300px"/>
+            <p> ${recipeRef.val().recipes}</p>            
+            `+page1.innerHTML;  
+        })
+    }
+
+    )
+}
+
+
 
 
 registerButton.addEventListener('click', registerWithEmailAndPassword);
