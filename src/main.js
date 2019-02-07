@@ -1,4 +1,11 @@
 document.getElementById("page1").style.display="none"
+document.getElementById("loginButton").addEventListener("click", function(){
+
+  document.getElementById("body").style.background="white"
+
+})
+
+
 //auth.js
 
 const checkAuthState = (callback) => {
