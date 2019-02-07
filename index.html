@@ -1,39 +1,73 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
+<html>
+  <head>
     <meta charset="UTF-8">
+
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel=StyleSheet href="style.css"> 
     <title>Document</title>
+
+  </head>
+  <body>
+    <div id="loginOrRegister">
+      <h1>Registrate o inicia sesión</h1>
+      <form action="javascript:void(0)">
+        <p>Email</p>
+        <input id="emailTextfield" type="email">
+        <p>Contraseña</p>
+        <input id="passwordTextfield" type="password">
+        <button id="registerButton">Registrate</button>
+        <button id="loginButton">Logueate</button>
+      </form>
+    </div>
+    <div id="app">
+      <h1>¡Bienvenid@ a SABORES</h1>
+      <p>Nombre de tu receta</p>
+      <input id="titleRecipe" type="text">
+
+      <p>Porciones</p>
+      <input id="idServes" type="text">
+      <p>Tiempo de Preparación</p>
+      <input id="idTime" type="text">
+      <p>costo estimado</p>
+      <input id="idCost" type="text">
+      <p>ingredientes</p>
+      <textarea  id="idIngredients" name="ingredients" cols="30" rows="10"></textarea>
+      <p>Preparacion de tu receta</p>
+      <textarea  id="insRecipes" name=""  cols="30" rows="10"></textarea>
+      <p>Imagen</p>
+      
+      <progress value="0" max="100" id="uploader">0%</progress><br>
+        <input type="file" value="upload" id="fileButton" name="elegir archivo"/>
+
+        <button id="sendRecipe">Enviar Receta</button>
+      <div id="recipeContainer">
+        
+      </div>
+    <!-- </div>
+    <div id="page1">
+      <textarea name="" id="" cols="30" rows="10"></textarea> 
+      
+    </div> -->
+
+
     
- <script src="https://www.gstatic.com/firebasejs/5.8.1/firebase.js"></script>
- <script>
+    
+<script src="https://www.gstatic.com/firebasejs/5.8.2/firebase.js"></script>
+<script>
   // Initialize Firebase
   var config = {
-    apiKey: "AIzaSyCtzPjsndiAnHpabrGI1BwiyFZ22yTDQmA",
-    authDomain: "usuario-cbda6.firebaseapp.com",
-    databaseURL: "https://usuario-cbda6.firebaseio.com",
-    projectId: "usuario-cbda6",
-    storageBucket: "usuario-cbda6.appspot.com",
-    messagingSenderId: "905659733083"
+    apiKey: "AIzaSyDHLmYAZ629IFPCNCCmioTKsnoLUAsRAo8",
+    authDomain: "red-social-1d44f.firebaseapp.com",
+    databaseURL: "https://red-social-1d44f.firebaseio.com",
+    projectId: "red-social-1d44f",
+    storageBucket: "red-social-1d44f.appspot.com",
+    messagingSenderId: "1051319292583"
   };
   firebase.initializeApp(config);
- </script>
+</script>
 
-</head>
-<body>
-    <h4>Registro de Usuarios</h4>
-    <input id="email" type="email" placeholder="Ingresa email">
-    <br><input id="contrasena" type="password" placeholder="Ingresa contraseña"></br>
-    <br><button onclick="registrar()">Enviar</button>
 
-    <h4>Ingreso de Usuarios</h4>
-    <br><input id="email2" type="email" placeholder="Ingresa email">
-    <br><input id="contrasena2" type="password" placeholder="Ingresa contraseña"></br>
-    <br><button onclick="ingreso()">Acceder</button>
-    
-    <div id="contenido"></div>
 
     <br><button id="Google"></button></br>
     
@@ -60,9 +94,9 @@
     })
   })
     </script>
-    <script src="main.js"></script>
-    <script src="logic.js"></script>
-    <script src="style.css"></script>
 
-</body>
+
+    <script src="main.js"></script>
+    <!-- <script src="src/js/auth/auth.js" type="module"></script> -->
+  </body>
 </html>
