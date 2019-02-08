@@ -123,22 +123,30 @@ checkAuthState((user)=>{
   }
 });
 };
+
+
 const registerWithEmailAndPassword = () => {
 const emailFromUser = emailTextfield.value;
 const passwordFromUser = passwordTextfield.value;
 registerUser(emailFromUser, passwordFromUser);
 };
+
+
 const loginUserWithEmailAndPassword = () => {
 const emailFromUser = emailTextfield.value;
 const passwordFromUser = passwordTextfield.value;
 loginUser(emailFromUser, passwordFromUser);
 };
+
+
 //nueva 
 const saveUserIntoDatabase = () => {
   const userId = firebase.auth().currentUser.uid;
   const userEmail = firebase.auth().currentUser.email;
   saveUser(userId, userEmail);
 }
+
+
 const saveRecipesIntoDatabase = () => {
 const recipeTitle = titleRecipe.value;
 const recipeImage = imgUrl;
@@ -150,6 +158,8 @@ const prepTime = idTime.value;
 const recipeCost = idCost.value;
 saveRecipe(recipeTitle, recipeImage, ownerName, insRecipe, recipeIngredients, recipeServes, prepTime, recipeCost);
 }
+
+
 const readRecipesFromDatabase = () => {
   readRecipes((recipe)=>{
       recipeContainer.innerHTML = 
