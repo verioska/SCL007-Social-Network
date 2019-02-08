@@ -1,18 +1,5 @@
 document.getElementById("page1").style.display="none"
 
-// document.getElementById("loginButton").addEventListener("click", function(){
-//   document.getElementById("close").style.display="block"
-// })
-
-// document.getElementById("enter").addEventListener("click", function(){
-//   document.getElementById("muro").style.display="block" 
-// })
-
-// document.getElementById("sendRecipe").addEventListener("click", function(){
-//   document.getElementById("muro").style.display="none"
-//   document.getElementById("recipeContainer").style.display="block"
-// })
-
 document.getElementById("close").addEventListener("click", function(){
   
    document.getElementById("recipeContainer").style.display="none"
@@ -30,8 +17,6 @@ document.getElementById("close").addEventListener("click", function(){
 
 
 
-
-/* document.getElementById("page1").style.display="none" */
 //auth.js
 
 const checkAuthState = (callback) => {
@@ -91,13 +76,6 @@ const saveRecipe = (recipeTitle, recipeImage, ownerName, insRecipe, recipeIngred
 
   });
 };
-
-/* const deletePost = (id) => {
-  let recipeRef = firebase.database().ref('recipe/' + id);
-  recipeRef.remove()
-} */
-
-
 
 
 const readRecipes = (onRecipeChange) => {
@@ -159,6 +137,8 @@ fileButton.addEventListener('change', function(e) {
     });
 
 })
+
+
 
 //main.js
 window.onload = () => {
@@ -234,32 +214,6 @@ const readRecipesFromDatabase = () => {
   });
  }
 
-// const accessRecipesFromDatabase = () => {
-//   accessRecipes((id)=>{
-//       document.getElementById(id).addEventListener('click', function(){
-//           alert("holaMundo");
-//           document.getElementById("page1").style.display="block"
-//           document.getElementById("loginOrRegister").style.display="none"
-//           document.getElementById("app").style.display="none"
-//           let recipeRef = firebase.database().ref('recipe/' + id);
-//           page1.innerHTML = 
-//           `<h2>SABORES</h2>
-//           <h3>${recipeRef.val().title}</h3>
-//           <img id="link" src="${recipe.val().image}" style="width:300px"/>
-//           <p> ${recipeRef.val().recipes}</p> 
-//           `+page1.innerHTML;  
-                 
-//         })
-//   }
-
-//   )
-// }
-
-
-
-
 registerButton.addEventListener('click', registerWithEmailAndPassword);
 loginButton.addEventListener('click', loginUserWithEmailAndPassword);
-//nueva
-/* saveUserData.addEventListener('click', saveUserIntoDatabase)  */
 sendRecipe.addEventListener('click', saveRecipesIntoDatabase);
