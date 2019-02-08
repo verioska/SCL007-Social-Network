@@ -1,101 +1,128 @@
 <html>
-  <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="grillas.css">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
-  </head>
-  <body id="body">
-    <div id="loginOrRegister">
-      <h1 id="title">Sabores</h1>
-      <form id="registry" action="javascript:void(0)">
-        <div class="inputWithIcon">
-          <input id="emailTextfield"  type="email" class="field"  placeholder="Ingresa email" >
-          <i class="fas fa-envelope"></i>
-        </div>
-        <div class="inputWithIcon"> 
-          <input id="passwordTextfield" type="password" class="field"   placeholder="password">
-          <i class="fas fa-unlock-alt"></i>
-        </div>
-        <div id="button">
-          <button id="registerButton">Registrate</button>
-          <button id="loginButton">Logueate</button>
-        </div>
-        <div>
-         <i id="facebook" class="fab fa-facebook-f icono_facebook"></i>
-         <script>
-            document.getElementById('facebook').addEventListener("click", function(){
-              var provider= new firebase.auth.FacebookAuthProvider();
-              firebase.auth().signInWithPopup(provider).then(function(result){
-                console.log(result);
-              }).catch(function(error){
-                console.log(error);
-              })
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="grillas.css">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css"
+    integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+</head>
+
+<body id="body">
+  <div id="loginOrRegister">
+    <h1 id="title">Sabores</h1>
+    <form id="registry" action="javascript:void(0)">
+      <div class="inputWithIcon">
+        <input id="emailTextfield" type="email" class="field" placeholder="Ingresa email">
+        <i class="fas fa-envelope"></i>
+
+      </div>
+      <div class="inputWithIcon">
+        <input id="passwordTextfield" type="password" class="field" placeholder="password">
+        <i class="fas fa-unlock-alt"></i>
+      </div>
+      <div id="button">
+        <button id="registerButton">Registrate</button>
+        <button id="loginButton">Logueate</button>
+      </div>
+      <div>
+        <button id="facebook"></button>
+        <script>
+          document.getElementById('facebook').addEventListener("click", function () {
+            var provider = new firebase.auth.FacebookAuthProvider();
+            firebase.auth().signInWithPopup(provider).then(function (result) {
+              console.log(result);
+            }).catch(function (error) {
+              console.log(error);
             })
-          </script>
-         <i id="google" class="fab fa-google  icono_google"></i>
-         <script>
-            document.getElementById('google').addEventListener("click", function(){
-              var provider = new firebase.auth.GoogleAuthProvider();
-              firebase.auth().signInWithPopup(provider).then(function(user){
-                alert("Google SignIn");
-                console.log(user);
-              }).catch(function(error){
-                console.log(error);
-              })
+          })
+        </script>
+        <button id="google"></button>
+        <script>
+          document.getElementById('google').addEventListener("click", function () {
+            var provider = new firebase.auth.GoogleAuthProvider();
+            firebase.auth().signInWithPopup(provider).then(function (user) {
+              alert("Google SignIn");
+              console.log(user);
+            }).catch(function (error) {
+              console.log(error);
             })
-          </script>
-          
-         
-        </div>
-      </form>
-    </div>
-    <div id="app">
-      <h1>¡Bienvenid@ a SABORES</h1>
+          })
+        </script>
+
+
+      </div>
+
+    </form>
+  </div>
+  <div id="app" >
+    <h1>¡Bienvenid@ a SABORES!</h1>
+      <form id="enter-login" class="container-fluid2">
+    <div>
       <p>Nombre de tu receta</p>
       <input id="titleRecipe" type="text">
+
       <p>Porciones</p>
-     <input id="idServes" type="text">
-     <p>Tiempo de Preparación</p>
-     <input id="idTime" type="text">
-     <p>costo estimado</p>
-     <input id="idCost" type="text">
-     <p>ingredientes</p>
-     <textarea  id="idIngredients" name="ingredients" cols="30" rows="10"></textarea>
-     <p>Preparacion de tu receta</p>
-     <textarea  id="insRecipes" name=""  cols="30" rows="10"></textarea>
-     <p>Imagen</p>
+      <input id="idServes" type="text">
+
+      <p>Tiempo de Preparación</p>
+      <input id="idTime" type="text">
+
+      <p>costo estimado</p>
+      <input id="idCost" type="text">
+
+    </div>
+ 
+    <div class="form ingridients">
+
+      <p>ingredientes</p>
+      <textarea id="idIngredients" name="ingredients" cols="30" rows="10"></textarea>
+    </div>
+    
+    <div class="form directions">
+      <p>Preparacion de tu receta</p>
+      <textarea id="insRecipes" name="" cols="30" rows="10"></textarea>
+
+    </div>
+    
+    <div class="form upload">
+
+      <p>Imagen</p>
       <progress value="0" max="100" id="uploader">0%</progress><br>
-        <input type="file" value="upload" id="fileButton" name="elegir archivo"/>
-        <button id="sendRecipe">Enviar Receta</button>
-      <div id="recipeContainer" class="container-fluid">
-        
-      </div>
+     <br> <input type="file" value="upload" id="fileButton" name="elegir archivo" /></br>
+      <button id="sendRecipe">Enviar Receta</button>
     </div>
-    <div id="page1">
-      <textarea name="" id="" cols="30" rows="10"></textarea>
-    </div>
-    
-    
-<script src="https://www.gstatic.com/firebasejs/5.8.2/firebase.js"></script>
-<script>
-  // Initialize Firebase
-  var config = {
-    apiKey: "AIzaSyDHLmYAZ629IFPCNCCmioTKsnoLUAsRAo8",
-    authDomain: "red-social-1d44f.firebaseapp.com",
-    databaseURL: "https://red-social-1d44f.firebaseio.com",
-    projectId: "red-social-1d44f",
-    storageBucket: "red-social-1d44f.appspot.com",
-    messagingSenderId: "1051319292583"
-  };
-  firebase.initializeApp(config);
-</script>
-    <script src="main.js"></script>
-    <!-- <script src="src/js/auth/auth.js" type="module"></script> -->
-  </body>
+  
+    </form>
+  </div>
+  
+  <div>
+    <button id="cerrar">Cerrar sesion</button>
+  </div>
+  <div id="page1">
+    <textarea name="" id="" cols="30" rows="10"></textarea>
+  </div>
+
+  <div id="recipeContainer" class="container-fluid"></div>
+
+  <script src="https://www.gstatic.com/firebasejs/5.8.2/firebase.js"></script>
+  <script>
+    // Initialize Firebase
+    var config = {
+      apiKey: "AIzaSyDHLmYAZ629IFPCNCCmioTKsnoLUAsRAo8",
+      authDomain: "red-social-1d44f.firebaseapp.com",
+      databaseURL: "https://red-social-1d44f.firebaseio.com",
+      projectId: "red-social-1d44f",
+      storageBucket: "red-social-1d44f.appspot.com",
+      messagingSenderId: "1051319292583"
+    };
+    firebase.initializeApp(config);
+  </script>
+
+  <script src="main.js"></script>
+  <!-- <script src="src/js/auth/auth.js" type="module"></script> -->
+</body>
+
 </html>
-
-
-
