@@ -103,7 +103,9 @@
       margin-left: 80px;
       margin-top: 25%;
     }
-
+    #fileButton{
+      margin-left: 5px;
+    }
     #enter-login{
       background-color:#918A8A;
       width: 320px;
@@ -114,7 +116,7 @@
    }
    #close{
     margin-top: -226%;
-    margin-left: 64%;
+    margin-left: 68%;
 }
    #app1{
     margin-left: 25%;
@@ -125,9 +127,9 @@
    #uploader{
     margin-left: 25%;
    }
-   #sendRecipe{
-    margin-left: 35%;
-   }
+   #sendRecipe {
+    margin-left: 41%;
+}
    #app4{
     margin-left: 45%;
    }
@@ -137,4 +139,5 @@
    #preRec{
     margin-left: 20%;
    }
+   
 }
