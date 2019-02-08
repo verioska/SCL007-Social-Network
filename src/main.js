@@ -1,9 +1,35 @@
 document.getElementById("page1").style.display="none"
-document.getElementById("loginButton").addEventListener("click", function(){
 
-  document.getElementById("body").style.background="white"
+// document.getElementById("loginButton").addEventListener("click", function(){
+//   document.getElementById("muro").style.display="none"
+//   document.getElementById("recipeContainer").style.display="block"
+// })
 
-})
+// document.getElementById("enter").addEventListener("click", function(){
+//   document.getElementById("muro").style.display="block" 
+// })
+
+// document.getElementById("sendRecipe").addEventListener("click", function(){
+//   document.getElementById("muro").style.display="none"
+//   document.getElementById("recipeContainer").style.display="block"
+// })
+
+document.getElementById("close").addEventListener("click", function(){
+ 
+   document.getElementById("recipeContainer").style.display="none"
+  firebase.auth().signOut()
+  .then(function(){
+      console.log('Saliendo...')
+  
+  })
+  .catch(function(error){
+      console.log(error)
+  
+  })
+  })
+
+
+
 
 
 /* document.getElementById("page1").style.display="none" */
@@ -39,6 +65,7 @@ const loginUser = (email, password) => {
     .catch((error) => {
       console.error("Error > "+error.message);
     });
+    
 }
 
 
@@ -183,32 +210,53 @@ saveRecipe(recipeTitle, recipeImage, ownerName, insRecipe, recipeIngredients, re
 
 const readRecipesFromDatabase = () => {
   readRecipes((recipe)=>{
-      recipeContainer.innerHTML = 
-      `<h3>${recipe.val().title}</h3>
-      <button id=${recipe.val().Key}><img id="link"  src="${recipe.val().image}" style="width:300px"/></button>
-      `+recipeContainer.innerHTML; 
-  }); 
-}
+      recipeContainer.innerHTML =
+      `
+      <br><br>
+      <div class="flip-card">
+        <div class="flip-card-inner">
+          <div class="flip-card-front">
+            <img src="${recipe.val().image}" alt="Recipe Image" style="width:300px;height:300px;"><br>
+            <h3 class="title-class">${recipe.val().title}</h3><br>
+            <p>${recipe.val().owner}</p><br>
+            <p>Porciones: ${recipe.val().serves}</p><br>
+            <p>Tiempo: ${recipe.val().time}</p><br>
+            <p>Costo: ${recipe.val().cost}</p>
+          </div>
+          <div class="flip-card-back">
+            <p>Ingredientes</p><br>
+            <p>${recipe.val().Ingredients}</p><br>
+            <p>Instrucciones</p>
+            <p>${recipe.val().recipes}</p><br>
+ 
+          </div>
+        </div>
+      </div>
+      <br><br>
+      `+recipeContainer.innerHTML;
+  });
+ }
 
-const accessRecipesFromDatabase = () => {
-  accessRecipes((id)=>{
-      document.getElementById(id).addEventListener('click', function(){
-          alert("holaMundo");
-          document.getElementById("page1").style.display="block"
-          document.getElementById("loginOrRegister").style.display="none"
-          document.getElementById("app").style.display="none"
-          let recipeRef = firebase.database().ref('recipe/' + id);
-          page1.innerHTML = 
-          `<h2>SABORES</h2>
-          <h3>${recipeRef.val().title}</h3>
-          <img id="link" src="${recipe.val().image}" style="width:300px"/>
-          <p> ${recipeRef.val().recipes}</p>            
-          `+page1.innerHTML;  
-      })
-  }
+// const accessRecipesFromDatabase = () => {
+//   accessRecipes((id)=>{
+//       document.getElementById(id).addEventListener('click', function(){
+//           alert("holaMundo");
+//           document.getElementById("page1").style.display="block"
+//           document.getElementById("loginOrRegister").style.display="none"
+//           document.getElementById("app").style.display="none"
+//           let recipeRef = firebase.database().ref('recipe/' + id);
+//           page1.innerHTML = 
+//           `<h2>SABORES</h2>
+//           <h3>${recipeRef.val().title}</h3>
+//           <img id="link" src="${recipe.val().image}" style="width:300px"/>
+//           <p> ${recipeRef.val().recipes}</p> 
+//           `+page1.innerHTML;  
+                 
+//         })
+//   }
 
-  )
-}
+//   )
+// }
 
 
 
