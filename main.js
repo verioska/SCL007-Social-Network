@@ -1,8 +1,7 @@
 document.getElementById("page1").style.display="none"
 
 // document.getElementById("loginButton").addEventListener("click", function(){
-//   document.getElementById("muro").style.display="none"
-//   document.getElementById("recipeContainer").style.display="block"
+//   document.getElementById("close").style.display="block"
 // })
 
 // document.getElementById("enter").addEventListener("click", function(){
@@ -15,7 +14,7 @@ document.getElementById("page1").style.display="none"
 // })
 
 document.getElementById("close").addEventListener("click", function(){
- 
+  
    document.getElementById("recipeContainer").style.display="none"
   firebase.auth().signOut()
   .then(function(){
