@@ -92,7 +92,42 @@
         margin-left: -450px;
         margin-top: 55%;
     }
-    
-
-
+    h1{
+     
+      margin-left: 80px;
+      margin-top: 12%;
+    }
+    #enter-login{
+      background-color:#918A8A;
+      width: 320px;
+      margin: 0 auto;
+      padding: 2%;
+      border-radius: 10px;
+      margin-top: 5%;
+   }
+   #close{
+    margin-top:-205%;
+    margin-left: 70%;
+}
+   #app1{
+    margin-left: 25%;
+   }
+   #app2,#app3{
+    margin-left: 15%;
+   }
+   #uploader{
+    margin-left: 25%;
+   }
+   #sendRecipe{
+    margin-left: 35%;
+   }
+   #app4{
+    margin-left: 45%;
+   }
+   #ingre{
+    margin-left: 35%;
+   }
+   #preRec{
+    margin-left: 20%;
+   }
 }

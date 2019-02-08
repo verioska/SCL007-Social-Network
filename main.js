@@ -161,8 +161,6 @@ fileButton.addEventListener('change', function(e) {
 
 })
 
-
-
 //main.js
 window.onload = () => {
 checkAuthState((user)=>{
