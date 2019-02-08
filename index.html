@@ -17,7 +17,6 @@
       <div class="inputWithIcon">
         <input id="emailTextfield" type="email" class="field" placeholder="Ingresa email">
         <i class="fas fa-envelope"></i>
-
       </div>
       <div class="inputWithIcon">
         <input id="passwordTextfield" type="password" class="field" placeholder="password">
@@ -51,56 +50,52 @@
             })
           })
         </script>
+      </div>
+    </form>
+  </div>
 
+  <div id="app">
+    <h2>¡Bienvenid@ a SABORES!</h2>
+    <form id="enter-login" class="container-fluid2">
+      <div id="app1">
+        <p>Nombre de tu receta</p>
+        <input id="titleRecipe" type="text">
 
+        <p>Porciones</p>
+        <input id="idServes" type="text">
+
+        <p>Tiempo de Preparación</p>
+        <input id="idTime" type="text">
+
+        <p>costo estimado</p>
+        <input id="idCost" type="text">
+      </div>
+
+      <div id="app2" class="form ingridients">
+        <p id="ingre">Ingredientes</p>
+        <textarea id="idIngredients" name="Ingredients" cols="30" rows="10"></textarea>
+      </div>
+
+      <div  id="app3" class="form directions">
+        <p id="preRec">Preparacion de tu receta</p>
+        <textarea id="insRecipes" name="" cols="30" rows="10"></textarea>
+      </div>
+
+      <div class="form upload">
+
+        <p id="app4">Imagen</p>
+        <progress value="0" max="100" id="uploader">0%</progress><br>
+        <br> <input type="file" value="upload" id="fileButton" name="elegir archivo" /></br>
+        <button id="sendRecipe">Enviar Receta</button>
       </div>
 
     </form>
   </div>
-  <div id="app" >
-    <h1>¡Bienvenid@ a SABORES!</h1>
-      <form id="enter-login" class="container-fluid2">
-    <div>
-      <p>Nombre de tu receta</p>
-      <input id="titleRecipe" type="text">
 
-      <p>Porciones</p>
-      <input id="idServes" type="text">
-
-      <p>Tiempo de Preparación</p>
-      <input id="idTime" type="text">
-
-      <p>costo estimado</p>
-      <input id="idCost" type="text">
-
-    </div>
- 
-    <div class="form ingridients">
-
-      <p>ingredientes</p>
-      <textarea id="idIngredients" name="ingredients" cols="30" rows="10"></textarea>
-    </div>
-    
-    <div class="form directions">
-      <p>Preparacion de tu receta</p>
-      <textarea id="insRecipes" name="" cols="30" rows="10"></textarea>
-
-    </div>
-    
-    <div class="form upload">
-
-      <p>Imagen</p>
-      <progress value="0" max="100" id="uploader">0%</progress><br>
-     <br> <input type="file" value="upload" id="fileButton" name="elegir archivo" /></br>
-      <button id="sendRecipe">Enviar Receta</button>
-    </div>
-  
-    </form>
-  </div>
-  
   <div>
-    <button id="cerrar">Cerrar sesion</button>
+    <button id="close">Cerrar sesion</button>
   </div>
+
   <div id="page1">
     <textarea name="" id="" cols="30" rows="10"></textarea>
   </div>
@@ -122,8 +117,7 @@
   </script>
 
   <script src="main.js"></script>
-  
-
+  <!-- <script src="src/js/auth/auth.js" type="module"></script> -->
 </body>
 
 </html>
