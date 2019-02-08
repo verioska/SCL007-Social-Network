@@ -94,9 +94,15 @@
     }
     h1{
      
-      margin-left: 80px;
-      margin-top: 12%;
+      margin-left: 0px;
+      margin-top: 0%;
     }
+    h2{
+     
+      margin-left: 80px;
+      margin-top: 25%;
+    }
+
     #enter-login{
       background-color:#918A8A;
       width: 320px;
