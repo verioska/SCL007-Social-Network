@@ -1,41 +1,11 @@
-body {
-    background-image: url("https://slack-redir.net/link?url=https%3A%2F%2Fi.pinimg.com%2Foriginals%2Fdf%2Ffc%2Fa7%2Fdffca74282382587f9b3d221a5c6593c.jpg");
-    background-repeat: repeat-y ;
-    background-size: 120%;
- 
- }
 
 
-#title{
-    font-family: "Cheveuxdange";
-    font-size: 70px;
-}
 
-.imgRecipe{
-   cursor: e-resize;
-}
-#page1{
-    display: none;
-}
-#registry{
-    margin-left: 515px;
-    margin-top: 3%
-}
-h1{
-    margin-left: 575px;
-    margin-top: 15%;
-    width: auto;
-    color:#F6F6F6;
-    font-size:30px;
-    text-transform: uppercase;  
-}
 h2{
     margin-left: 500px;
     margin-top: 15%;
     width: auto;
-    color:#F6F6F6;
-    font-size:30px;
-    text-transform: uppercase;  
+
 }
 #button{
     margin-left: 20px;
@@ -52,6 +22,7 @@ h2{
   width: 80px;
   cursor: pointer;
 }
+
 #passwordTextfield{
     margin-top: 1%;  
 }
@@ -79,16 +50,13 @@ h2{
     border-radius: 35px;
 }
 form{
-    background-color:#918A8A;
+
     width: 250px;
     margin: 0 auto;
     padding: 2%;
     border-radius: 10px;
 }
-input{
-    outline: none;
-    border-radius: 5px;
-}
+
 .field{
  width: 200px    
 }
@@ -183,6 +151,7 @@ input{
     margin-top:-30%;
     margin-left: 87%;
     
+
 }
 #idIngredients, #insRecipes{
     border-radius: 5px;
