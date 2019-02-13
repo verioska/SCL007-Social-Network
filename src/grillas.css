@@ -1,12 +1,21 @@
+
+
+=======
+
 *{
     box-sizing: border-box;
     margin: 0;
     padding: 0;
 }
+
+
+
+
 .container{
     width: 100%;
     margin: 0 auto;
 }
+
 .row:before, .row:after{
     content: " ";
     display: table;
@@ -19,6 +28,7 @@
     padding:12px;
     max-width: 100%;
 }
+
 .col-1 {
     /* (1 / 12) x 100 */
     width: 8.333333%;
@@ -78,6 +88,7 @@
     /* (12 / 12) x 100 */
     width: 100%;
   }
+
 @media only screen and (max-width: 768px) {
     /* For mobile phones: */
     [class*="col-"] {
@@ -102,7 +113,7 @@
       margin-left: 5px;
     }
     #enter-login{
-      background-color:#918A8A;
+
       width: 320px;
       margin: 0 auto;
       padding: 2%;
@@ -135,4 +146,4 @@
     margin-left: 20%;
    }
    
-}
+

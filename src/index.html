@@ -8,11 +8,12 @@
   <link rel="stylesheet" href="grillas.css">
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css"
     integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+
 </head>
 
 <body id="body">
   <div id="loginOrRegister">
-    <h1 id="title">Sabores</h1>
+
     <form id="registry" action="javascript:void(0)">
       <div class="inputWithIcon">
         <input id="emailTextfield" type="email" class="field" placeholder="Ingresa email">
@@ -55,6 +56,7 @@
   </div>
 
   <div id="app">
+
     <h2>¡Bienvenid@ a SABORES!</h2>
     <form id="enter-login" class="container-fluid2">
       <div id="app1">
@@ -76,13 +78,6 @@
         <textarea id="idIngredients" name="Ingredients" cols="30" rows="10"></textarea>
       </div>
 
-      <div  id="app3" class="form directions">
-        <p id="preRec">Preparacion de tu receta</p>
-        <textarea id="insRecipes" name="" cols="30" rows="10"></textarea>
-      </div>
-
-      <div class="form upload">
-
         <p id="app4">Imagen</p>
         <progress value="0" max="100" id="uploader">0%</progress><br>
         <br> <input type="file" value="upload" id="fileButton" name="elegir archivo" /></br>
@@ -90,6 +85,7 @@
       </div>
 
     </form>
+
   </div>
 
   <div>
@@ -100,7 +96,6 @@
     <textarea name="" id="" cols="30" rows="10"></textarea>
   </div>
 
-  <div id="recipeContainer" class="container-fluid"></div>
 
   <script src="https://www.gstatic.com/firebasejs/5.8.2/firebase.js"></script>
   <script>
@@ -117,8 +112,6 @@
   </script>
 
   <script src="main.js"></script>
-  <script src="auth.js"></script> 
-  <script src="data.js"></script> 
 
 </body>
 

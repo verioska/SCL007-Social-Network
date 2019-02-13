@@ -1,5 +1,6 @@
 document.getElementById("page1").style.display="none"
 
+
 document.getElementById("close").addEventListener("click", function(){
   
    document.getElementById("recipeContainer").style.display="none"
@@ -13,6 +14,7 @@ document.getElementById("close").addEventListener("click", function(){
   
   })
   })
+
 
 
 
@@ -41,21 +43,6 @@ const registerUser = (email, password) => {
     });
 }
 
-const loginUser = (email, password) => {
-  firebase.auth().signInWithEmailAndPassword(email, password)
-    .then((user)=>{
-      console.log("Usuario logueado > "+JSON.stringify(user));
-    })
-    .catch((error) => {
-      console.error("Error > "+error.message);
-    });
-    
-}
-
-
-
-//data.js
-
 
 
 let newRecipeKey = "";
@@ -77,13 +64,8 @@ const saveRecipe = (recipeTitle, recipeImage, ownerName, insRecipe, recipeIngred
   });
 };
 
+const containerRoot = document.getElementById('root');
 
-const readRecipes = (onRecipeChange) => {
-  var recipeRef = firebase.database().ref('recipe');
-  recipeRef.on('child_added', (recipe)=> {
-    onRecipeChange(recipe);
-  });
-};
 
 var uploader = document.getElementById('uploader');
 var fileButton = document.getElementById('fileButton');
@@ -138,8 +120,6 @@ fileButton.addEventListener('change', function(e) {
 
 })
 
-
-
 //main.js
 window.onload = () => {
 checkAuthState((user)=>{
@@ -164,7 +144,10 @@ const loginUserWithEmailAndPassword = () => {
 const emailFromUser = emailTextfield.value;
 const passwordFromUser = passwordTextfield.value;
 loginUser(emailFromUser, passwordFromUser);
+
 };
+
+
 
 //nueva 
 const saveUserIntoDatabase = () => {
@@ -185,35 +168,3 @@ const recipeCost = idCost.value;
 saveRecipe(recipeTitle, recipeImage, ownerName, insRecipe, recipeIngredients, recipeServes, prepTime, recipeCost);
 }
 
-const readRecipesFromDatabase = () => {
-  readRecipes((recipe)=>{
-      recipeContainer.innerHTML =
-      `
-      <br><br>
-      <div class="flip-card">
-        <div class="flip-card-inner">
-          <div class="flip-card-front">
-            <img src="${recipe.val().image}" alt="Recipe Image" style="width:300px;height:300px;"><br>
-            <h3 class="title-class">${recipe.val().title}</h3><br>
-            <p>${recipe.val().owner}</p><br>
-            <p>Porciones: ${recipe.val().serves}</p><br>
-            <p>Tiempo: ${recipe.val().time}</p><br>
-            <p>Costo: ${recipe.val().cost}</p>
-          </div>
-          <div class="flip-card-back">
-            <p>Ingredientes</p><br>
-            <p>${recipe.val().Ingredients}</p><br>
-            <p>Instrucciones</p>
-            <p>${recipe.val().recipes}</p><br>
- 
-          </div>
-        </div>
-      </div>
-      <br><br>
-      `+recipeContainer.innerHTML;
-  });
- }
-
-registerButton.addEventListener('click', registerWithEmailAndPassword);
-loginButton.addEventListener('click', loginUserWithEmailAndPassword);
-sendRecipe.addEventListener('click', saveRecipesIntoDatabase);
