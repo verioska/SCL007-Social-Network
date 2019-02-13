@@ -93,7 +93,7 @@ const readRecipesFromDatabase = () => {
       // containerRoot.appendChild(container2)
 
       const form = document.createElement('form');
-      form.setAttribute('class',"infoUser");
+      form.setAttribute('id',"infoUser");
       containerRoot.appendChild(form);
 
       const i=document.createElement('i');
