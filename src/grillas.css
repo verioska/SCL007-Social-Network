@@ -1,3 +1,145 @@
 
+
+*{
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+.container{
+  width: 100%;
+  margin: 0 auto;
+}
+
+.row:before, .row:after{
+  content: " ";
+  display: table;
+}
+.row:after{
+  clear: both
+}
+[class*="col-"]{
+  min-height: 7px;
+  padding:12px;
+  max-width: 100%;
+}
+
+.col-1 {
+  /* (1 / 12) x 100 */
+  width: 8.333333%;
+} 
+
+.col-2 {
+  /* (2 / 12) x 100 */
+  width: 16.666667%;
+} 
+
+.col-3 {
+  /* (3 / 12) x 100 */
+  width: 25%;
+} 
+
+.col-4 {
+  /* (4 / 12) x 100 */
+  width: 33.333333%;
+}
+
+.col-5 {
+  /* (5 / 12) x 100 */
+  width: 41.666667%;
+}
+
+.col-6 {
+  /* (6 / 12) x 100 */
+  width: 50%;
+} 
+
+.col-7 {
+  /* (7 / 12) x 100 */
+  width: 58.333333%;
+}
+
+.col-8 {
+  /* (8 / 12) x 100 */
+  width: 66.666667%;
+}
+
+.col-9 {
+  /* (9 / 12) x 100 */
+  width: 75%;
+}
+
+.col-10 {
+  /* (10 / 12) x 100 */
+  width: 83.333333%;
+}
+
+.col-11 {
+  /* (11 / 12) x 100 */
+  width: 91.666667%;
+}
+
+.col-12 {
+  /* (12 / 12) x 100 */
+  width: 100%;
+}
+
+@media only screen and (max-width: 768px) {
+  /* For mobile phones: */
+  [class*="col-"] {
+      width: 100%;
+  }
+  div#loginOrRegister{
+      margin-left: -450px;
+      margin-top: 55%;
+  }
+  #tittle{
    
+    margin-left: 20px;
+    margin-top: 0%;
+  }
+  
+  h2{
+   
+    margin-left: 80px;
+    margin-top: 25%;
+  }
+  #fileButton{
+    margin-left: 5px;
+  }
+  #enter-login{
+    
+    width: 320px;
+    margin: 0 auto;
+    padding: 2%;
+    border-radius: 10px;
+    margin-top: 5%;
+ }
+ #close{
+  margin-top: -226%;
+  margin-left: 68%;
+}
+ #app1{
+  margin-left: 25%;
+ }
+ #app2,#app3{
+  margin-left: 15%;
+ }
+ #uploader{
+  margin-left: 25%;
+ }
+ #sendRecipe {
+  margin-left: 41%;
+}
+ #app4{
+  margin-left: 45%;
+ }
+ #ingre{
+  margin-left: 35%;
+ }
+ #preRec{
+  margin-left: 20%;
+ }
+ 
+}
 

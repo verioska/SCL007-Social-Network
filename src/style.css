@@ -1,11 +1,57 @@
 
+body {
+    background-image: url("https://slack-redir.net/link?url=https%3A%2F%2Fi.pinimg.com%2Foriginals%2Fdf%2Ffc%2Fa7%2Fdffca74282382587f9b3d221a5c6593c.jpg");  
+    background-repeat: repeat-y ;
+    background-size: 120%;
+    
+}
 
+.imgRecipe{
+   cursor: e-resize;
+}
+#page1{
+    display: none;
+}
+#registry{
+    margin-left: 605px;
+    margin-top: 3%
+}
+#menumain{
+    padding: 0px;
+    margin-left: 1%;
+} 
+.menu{
+    text-align:center;
+    font-size: 18px;
+    padding: 2% 2%;
+    margin-top: 3%
+}
+header {
+    background-color:#A40C0C ;
+    height: 70px;
+    
+}
+.icono{
+    color: white;
+    padding: 3%;
+}
+
+h1{ 
+    margin-left: 550px;
+    margin-top: 15%;
+    width: auto;
+	color:#F6F6F6;
+    font-size:50px;
+	text-transform: uppercase;	
+}
 
 h2{
     margin-left: 500px;
     margin-top: 15%;
     width: auto;
-
+	color:#F6F6F6;
+    font-size:30px;
+	text-transform: uppercase;	
 }
 #button{
     margin-left: 20px;
@@ -50,11 +96,33 @@ h2{
     border-radius: 35px;
 }
 form{
-
+    background-color:rgb(209, 30, 7);
     width: 250px;
     margin: 0 auto;
     padding: 2%;
     border-radius: 10px;
+
+    
+}
+#infoUser{
+    background-color:white;
+}
+.title-class{
+    margin-left: 75px;
+}
+.img-class{
+    margin-left: 60px; 
+}
+.iconoRecipes{
+    margin-top: 5%;
+    padding: 2px;
+    margin-left: 1px; 
+}
+
+input{
+    outline: none;
+    border-radius: 5px;
+
 }
 
 .field{
