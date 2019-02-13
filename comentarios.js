@@ -1,12 +1,21 @@
 document.getElementById("page1").style.display="none"
 
+document.getElementById("loginButton").addEventListener("click", function(){
+  document.getElementById("page2").style.display="block"
+})
 
+// document.getElementById("enter").addEventListener("click", function(){
+//   document.getElementById("muro").style.display="block" 
+// })
 
+// document.getElementById("sendRecipe").addEventListener("click", function(){
+//   document.getElementById("muro").style.display="none"
+//   document.getElementById("recipeContainer").style.display="block"
+// })
 
 document.getElementById("close").addEventListener("click", function(){
   
-  
-   document.getElementById("root").style.display="none"
+   document.getElementById("recipeContainer").style.display="none"
   firebase.auth().signOut()
   .then(function(){
       console.log('Saliendo...')
@@ -18,6 +27,11 @@ document.getElementById("close").addEventListener("click", function(){
   })
   })
 
+
+
+
+
+/* document.getElementById("page1").style.display="none" */
 //auth.js
 
 const checkAuthState = (callback) => {
@@ -53,7 +67,12 @@ const loginUser = (email, password) => {
     
 }
 
+
+
+
 //data.js
+
+
 
 let newRecipeKey = "";
 const saveRecipe = (recipeTitle, recipeImage, ownerName, insRecipe, recipeIngredients, recipeServes, prepTime, recipeCost) => {
@@ -70,17 +89,14 @@ const saveRecipe = (recipeTitle, recipeImage, ownerName, insRecipe, recipeIngred
     time: prepTime,
     cost: recipeCost,
       
+
   });
 };
-
 const containerRoot = document.getElementById('root');
 
 const readRecipesFromDatabase = () => {
     let recipeRef = firebase.database().ref('recipe');
     recipeRef.on("child_added", function(recipe){
-      // container2=document.getElementById('div');
-      // containerRoot.appendChild(container2)
-
       const form = document.createElement('form');
       form.setAttribute('id',"infoUser");
       containerRoot.appendChild(form);
@@ -88,18 +104,15 @@ const readRecipesFromDatabase = () => {
       const i=document.createElement('i');
       i.setAttribute('class',"far fa-user");
       form.appendChild(i);
-
       const p=document.createElement('p');
       form.appendChild(p);
       const nameProfile=document.createTextNode(recipe.val().owner);
       p.appendChild(nameProfile);
-
       const h3=document.createElement('h3');
       h3.setAttribute('class',"title-class");
       form.appendChild(h3);
       const titleProfile=document.createTextNode(recipe.val().title);
       h3.appendChild(titleProfile);
-
       const img=document.createElement('img')
       img.setAttribute('class',"img-class");
       img.setAttribute('alt',"Recipe Image");
@@ -108,35 +121,50 @@ const readRecipesFromDatabase = () => {
       form.appendChild(img);
       img.id = recipe.key;
       img.onclick = onImgClick;
-
       const i2=document.createElement('i2');
       i2.setAttribute('class',"far fa-clock iconoRecipes");
       form.appendChild(i2);
       const timeProfile=document.createTextNode(recipe.val().time);
       i2.appendChild(timeProfile);
-
       const i3=document.createElement('i3');
       i3.setAttribute('class',"fas fa-dollar-sign iconoRecipes");
       form.appendChild(i3);
       const moneyProfile=document.createTextNode(recipe.val().cost);
       i3.appendChild(moneyProfile);
-
       const i4=document.createElement('i4');
       i4.setAttribute('class',"fas fa-users iconoRecipes");
       form.appendChild(i4);
       const userProfile=document.createTextNode(recipe.val().serves);
       i4.appendChild(userProfile);
-
-      let list = document.getElementById("root");
-      list.insertBefore(form, list.childNodes[0]);
 });
 }
-
 function onImgClick(e) {
 var key = e.target.id;
 var title = e.target.title;
 alert('hola bb');
 }
+/* <form id="infoUser">
+//       <i class="far fa-user"></i>
+//       <p>${recipe.val().owner}</p>
+//       <h3  class="title-class">${recipe.val().title}</h3><br>
+//       <img class="img-class" src="${recipe.val().image}" alt="Recipe Image" style="width:100px;height:100px;"><br>
+//       <i class="far fa-clock iconoRecipes">${recipe.val().time}</i>
+//       <i class="fas fa-dollar-sign iconoRecipes"> ${recipe.val().cost}</i>
+//       <i class="fas fa-users iconoRecipes">${recipe.val().serves}</i>
+//       </form>
+
+
+/* const deletePost = (id) => {
+  let recipeRef = firebase.database().ref('recipe/' + id);
+  recipeRef.remove()
+} }*/ 
+
+// const readRecipes = (onRecipeChange) => {
+//   var recipeRef = firebase.database().ref('recipe');
+//   recipeRef.on('child_added', (recipe)=> {
+//     onRecipeChange(recipe);
+//   });
+// };
 
 var uploader = document.getElementById('uploader');
 var fileButton = document.getElementById('fileButton');
@@ -215,10 +243,7 @@ const loginUserWithEmailAndPassword = () => {
 const emailFromUser = emailTextfield.value;
 const passwordFromUser = passwordTextfield.value;
 loginUser(emailFromUser, passwordFromUser);
-
 };
-
-
 
 //nueva 
 const saveUserIntoDatabase = () => {
@@ -239,7 +264,71 @@ const recipeCost = idCost.value;
 saveRecipe(recipeTitle, recipeImage, ownerName, insRecipe, recipeIngredients, recipeServes, prepTime, recipeCost);
 }
 
+// const readRecipesFromDatabase = () => {
+//   readRecipes((recipe)=>{
+//       recipeContainer.innerHTML =
+//       `
+//       <form id="infoUser">
+//       <i class="far fa-user"></i>
+//       <p>${recipe.val().owner}</p>
+//       <h3  class="title-class">${recipe.val().title}</h3><br>
+//       <img class="img-class" src="${recipe.val().image}" alt="Recipe Image" style="width:100px;height:100px;"><br>
+//       <i class="far fa-clock iconoRecipes">${recipe.val().time}</i>
+//       <i class="fas fa-dollar-sign iconoRecipes"> ${recipe.val().cost}</i>
+//       <i class="fas fa-users iconoRecipes">${recipe.val().serves}</i>
+//       </form>
+       
+//       `+recipeContainer.innerHTML;
+//   });
+//  }
+//  <br><br>
+//       <div class="flip-card">
+//         <div class="flip-card-inner">
+//           <div class="flip-card-front">
+//             <img src="${recipe.val().image}" alt="Recipe Image" style="width:300px;height:300px;"><br>
+//             <h3 class="title-class">${recipe.val().title}</h3><br>
+//             <p>${recipe.val().owner}</p><br>
+//             <p>Porciones: ${recipe.val().serves}</p><br>
+//             <p>Tiempo: ${recipe.val().time}</p><br>
+//             <p>Costo: ${recipe.val().cost}</p>
+//           </div>
+//           <div class="flip-card-back">
+//             <p>Ingredientes</p><br>
+//             <p>${recipe.val().Ingredients}</p><br>
+//             <p>Instrucciones</p>
+//             <p>${recipe.val().recipes}</p><br>
+ 
+//           </div>
+//         </div>
+//       </div>
+//       <br><br></br>
+
+// // const accessRecipesFromDatabase = () => {
+//   accessRecipes((id)=>{
+//       document.getElementById(id).addEventListener('click', function(){
+//           alert("holaMundo");
+//           document.getElementById("page1").style.display="block"
+//           document.getElementById("loginOrRegister").style.display="none"
+//           document.getElementById("app").style.display="none"
+//           let recipeRef = firebase.database().ref('recipe/' + id);
+//           page1.innerHTML = 
+//           `<h2>SABORES</h2>
+//           <h3>${recipeRef.val().title}</h3>
+//           <img id="link" src="${recipe.val().image}" style="width:300px"/>
+//           <p> ${recipeRef.val().recipes}</p> 
+//           `+page1.innerHTML;  
+                 
+//         })
+//   }
+
+//   )
+// }
+
+
+
 
 registerButton.addEventListener('click', registerWithEmailAndPassword);
 loginButton.addEventListener('click', loginUserWithEmailAndPassword);
+//nueva
+/* saveUserData.addEventListener('click', saveUserIntoDatabase)  */
 sendRecipe.addEventListener('click', saveRecipesIntoDatabase);

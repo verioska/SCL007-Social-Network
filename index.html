@@ -8,11 +8,12 @@
   <link rel="stylesheet" href="grillas.css">
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css"
     integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+    
 </head>
 
 <body id="body">
   <div id="loginOrRegister">
-    <h1 id="title">Sabores</h1>
+    <h1 ><img id="title" src="Screen Shot 2019-02-12 at 20.32.23.png" alt=""></h1>
     <form id="registry" action="javascript:void(0)">
       <div class="inputWithIcon">
         <input id="emailTextfield" type="email" class="field" placeholder="Ingresa email">
@@ -55,6 +56,20 @@
   </div>
 
   <div id="app">
+      <header id="page2"> 
+          <div  class="container">
+            <div  class="row" >
+              <div class="col-12 " id="menumain">
+                <a href="#" id="home" class="menu"><i class="fas fa-home icono" ></i></a>
+                <a href="#" id="lupa" class="menu"><i class="fas fa-search icono"></i></a>
+                <a href="#" id="mas" class="menu"><i class="far fa-plus-square icono"></i></a>
+                <a href="#" id="favoritos" class="menu"><i class="far fa-star icono"></i></a>
+                <a href="#" id="user" class="menu"><i class="far fa-user icono"></i></a>
+              </div>
+            </div>
+          </div>
+      </header>
+      
     <h2>¡Bienvenid@ a SABORES!</h2>
     <form id="enter-login" class="container-fluid2">
       <div id="app1">
@@ -90,6 +105,8 @@
       </div>
 
     </form>
+
+    
   </div>
 
   <div>
@@ -99,8 +116,26 @@
   <div id="page1">
     <textarea name="" id="" cols="30" rows="10"></textarea>
   </div>
+  
+ <!-- <header id="page2">   
+    <div  class="container">
+      <div  class="row" >
+        <div class="col-12 " id="menumain">
+          <a href="#" id="home" class="menu"><i class="fas fa-home icono" ></i></a>
+          <a href="#" id="lupa" class="menu"><i class="fas fa-search icono"></i></a>
+          <a href="#" id="mas" class="menu"><i class="far fa-plus-square icono"></i></a>
+          <a href="#" id="favoritos" class="menu"><i class="far fa-star icono"></i></a>
+          <a href="#" id="user" class="menu"><i class="far fa-user icono"></i></a>
+        </div>
+      </div>
+    </div>
+</header>-->
 
-  <div id="recipeContainer" class="container-fluid"></div>
+  
+
+
+  <div id="root" class="container-fluid">
+
 
   <script src="https://www.gstatic.com/firebasejs/5.8.2/firebase.js"></script>
   <script>
