@@ -1,3 +1,4 @@
+
 body {
     background-image: url("https://slack-redir.net/link?url=https%3A%2F%2Fi.pinimg.com%2Foriginals%2Fdf%2Ffc%2Fa7%2Fdffca74282382587f9b3d221a5c6593c.jpg");  
     background-repeat: repeat-y ;
@@ -43,6 +44,7 @@ h1{
     font-size:50px;
 	text-transform: uppercase;	
 }
+
 h2{
     margin-left: 500px;
     margin-top: 15%;
@@ -99,6 +101,7 @@ form{
     margin: 0 auto;
     padding: 2%;
     border-radius: 10px;
+
     
 }
 #infoUser{
@@ -119,7 +122,9 @@ form{
 input{
     outline: none;
     border-radius: 5px;
+
 }
+
 .field{
  width: 200px    
 }

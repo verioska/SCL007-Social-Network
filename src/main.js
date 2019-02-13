@@ -1,3 +1,4 @@
+
 document.getElementById("page1").style.display="none"
 
 document.getElementById("home").addEventListener("click", function(){
@@ -254,3 +255,4 @@ saveRecipe(recipeTitle, recipeImage, ownerName, insRecipe, recipeIngredients, re
 registerButton.addEventListener('click', registerWithEmailAndPassword);
 loginButton.addEventListener('click', loginUserWithEmailAndPassword);
 sendRecipe.addEventListener('click', saveRecipesIntoDatabase);
+
