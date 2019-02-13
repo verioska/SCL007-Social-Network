@@ -1,12 +1,23 @@
 document.getElementById("page1").style.display="none"
 
+document.getElementById("home").addEventListener("click", function(){
+  document.getElementById("page3").style.display="none"
+  
+  
+})
 
+document.getElementById("loginButton").addEventListener("click", function(){
+  document.getElementById("page3").style.display="none"
+  document.getElementById("root").style.display="block"
+  
+})
 
 
 document.getElementById("close").addEventListener("click", function(){
   
   
    document.getElementById("root").style.display="none"
+   document.getElementById("page3").style.display="none"
   firebase.auth().signOut()
   .then(function(){
       console.log('Saliendo...')
@@ -82,7 +93,7 @@ const readRecipesFromDatabase = () => {
       // containerRoot.appendChild(container2)
 
       const form = document.createElement('form');
-      form.setAttribute('id',"infoUser");
+      form.setAttribute('class',"infoUser");
       containerRoot.appendChild(form);
 
       const i=document.createElement('i');
