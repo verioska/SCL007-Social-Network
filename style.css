@@ -1,6 +1,16 @@
 body {
-    background-color:#7E0000;  
+    background-image: url("https://slack-redir.net/link?url=https%3A%2F%2Fi.pinimg.com%2Foriginals%2Fdf%2Ffc%2Fa7%2Fdffca74282382587f9b3d221a5c6593c.jpg");
+    background-repeat: repeat-y ;
+    background-size: 120%;
+ 
+ }
+
+
+#title{
+    font-family: "Cheveuxdange";
+    font-size: 70px;
 }
+
 .imgRecipe{
    cursor: e-resize;
 }
