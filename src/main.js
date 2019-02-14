@@ -1,20 +1,24 @@
-
 document.getElementById("page1").style.display="none"
 
 document.getElementById("home").addEventListener("click", function(){
-  document.getElementById("page3").style.display="none"
-  
-  
-})
-
-document.getElementById("loginButton").addEventListener("click", function(){
-  document.getElementById("page3").style.display="none"
   document.getElementById("root").style.display="block"
-  
+  document.getElementById("page3").style.display="none"
+ 
 })
 
+document.getElementById("mas").addEventListener("click", function(){
+  document.getElementById("page3").style.display="block"
+  document.getElementById("root").style.display="none"
+})
 
-document.getElementById("close").addEventListener("click", function(){
+// document.getElementById("loginButton").addEventListener("click", function(){
+//   document.getElementById("page3").style.display="none"
+//   document.getElementById("root").style.display="block"
+  
+// })
+
+
+document.getElementById("close_profile").addEventListener("click", function(){
   
   
    document.getElementById("root").style.display="none"
@@ -37,6 +41,8 @@ const checkAuthState = (callback) => {
     if(user){
       console.log("Hay un usuario > "+JSON.stringify(user));
       callback(user);
+      document.getElementById("page3").style.display="none"
+      document.getElementById("root").style.display="block"
     }else{
       console.log("No está logueado");
       callback(null);
@@ -67,6 +73,9 @@ const loginUser = (email, password) => {
 
 //data.js
 
+
+
+
 let newRecipeKey = "";
 const saveRecipe = (recipeTitle, recipeImage, ownerName, insRecipe, recipeIngredients, recipeServes, prepTime, recipeCost) => {
   newRecipeKey = firebase.database().ref('recipe/boasfdisfbsfahb').child('likes').push().key;
@@ -85,6 +94,14 @@ const saveRecipe = (recipeTitle, recipeImage, ownerName, insRecipe, recipeIngred
   });
 };
 
+const updateRecipe=(childSnapshot, prevChildKey)=>{
+    var recipe = childSnapshot.val();
+    console.log(childSnapshot, prevChildKey);
+    document.getElementById('recipes_'+childSnapshot.key).innerHTML= recipe.recipes;
+    document.getElementById('ingredients_'+childSnapshot.key).innerHTML=recipe.Ingredients;
+   };
+
+
 const containerRoot = document.getElementById('root');
 
 const readRecipesFromDatabase = () => {
@@ -94,7 +111,7 @@ const readRecipesFromDatabase = () => {
       // containerRoot.appendChild(container2)
 
       const form = document.createElement('form');
-      form.setAttribute('id',"infoUser");
+      form.setAttribute('class',"infoUser");
       containerRoot.appendChild(form);
 
       const i=document.createElement('i');
@@ -119,7 +136,11 @@ const readRecipesFromDatabase = () => {
       img.setAttribute('src',recipe.val().image);
       form.appendChild(img);
       img.id = recipe.key;
+      img.Ingredients=recipe.val().Ingredients;
+      img.image = recipe.val().image;
       img.onclick = onImgClick;
+      img.recipes=recipe.val().recipes;
+      
 
       const i2=document.createElement('i2');
       i2.setAttribute('class',"far fa-clock iconoRecipes");
@@ -144,11 +165,130 @@ const readRecipesFromDatabase = () => {
 });
 }
 
+const containerRoot2 = document.getElementById('root2');
 function onImgClick(e) {
-var key = e.target.id;
-var title = e.target.title;
-alert('hola bb');
+
+ let key =e.target.id;
+ let image = e.target.image;
+ let Ingredients = e.target.Ingredients;
+ let recipes=e.target.recipes;
+ console.log(containerRoot2)
+
+ document.getElementById("root").style.display="none";
+ document.getElementById("root2").style.display="block";
+ const form1 = document.createElement('form');
+ form1.setAttribute('id',"color");
+ containerRoot2.appendChild(form1);
+
+ const img=document.createElement('img')
+ img.setAttribute('class',"img-class1");
+ img.setAttribute('alt',"Recipe Image");
+ img.setAttribute('style',"width:100px;height:100px;");
+ img.setAttribute('src',image);
+ img.setAttribute('type',button);
+ form1.appendChild(img);
+
+ //eliminar
+ const i=document.createElement('i');
+ i.setAttribute('class',"fas fa-trash-alt iconoIngredients");
+ form1.appendChild(i);
+ i.setAttribute("id","delete_"+key)
+ //document.getElementById("delete_"+key).addEventListener('click', erase)
+
+ //editar
+ const i2=document.createElement('i');
+ i2.setAttribute('class',"fas fa-edit iconoIngredients");
+ i2.setAttribute("id","edit_"+key)
+ form1.appendChild(i2);
+ document.getElementById("edit_"+key).addEventListener('click', openModal)
+
+
+
+ const hIngredients=document.createElement('h4');
+ form1.appendChild(hIngredients);
+ const ingredientsProfile=document.createTextNode("Ingredientes");
+ hIngredients.appendChild(ingredientsProfile);
+
+ const p=document.createElement('p');
+ form1.appendChild(p);
+ const nameProfile=document.createTextNode(Ingredients);
+ p.appendChild(nameProfile);
+ p.setAttribute("id","ingredients_"+key)
+
+ const br=document.createElement('br');
+ form1.appendChild(br);
+
+ const instructions=document.createElement('h4');
+ form1.appendChild(instructions);
+ const instructionsProfile=document.createTextNode("Instrucciones");
+ instructions.appendChild(instructionsProfile);
+
+
+
+ const pRecipes=document.createElement('p');
+ form1.appendChild(pRecipes);
+ const recipesProfile=document.createTextNode(recipes);
+ pRecipes.appendChild(recipesProfile);
+ pRecipes.setAttribute("id","recipes_"+key)
 }
+
+function openModal(event){
+
+   var id = event.currentTarget.id.replace('edit_','');
+   console.log(id)
+   var modal = document.getElementById("myModal");
+   modal.style.display = "block";
+   document.getElementById('insRecipesE').value = document.getElementById('recipes_'+id).innerHTML;
+   document.getElementById('idIngredientsE').value = document.getElementById('ingredients_'+id).innerHTML;
+   document.getElementById('edit-key').value = id;
+   }
+   
+   
+   function cerrarModal(){
+   var modal = document.getElementById('myModal');
+   modal.style.display = "none";
+   
+   }
+   
+   
+   function editRecipe(event){
+   
+   var id = document.getElementById('edit-key').value;
+   var recipeRef = firebase.database().ref('recipe/'+id);
+   //get field values
+   var recipesnuevo=document.getElementById('insRecipesE').value
+   var ingredientsNuevo=document.getElementById('idIngredientsE').value
+   recipeRef.update({recipes: recipesnuevo,Ingredients:ingredientsNuevo},()=>{
+   cerrarModal();
+   });
+   }
+
+
+//click al icono eliminar
+function oniClick(e){
+
+  alert("hola")
+}
+
+//click al icono editar
+function oni2Click(e){
+
+  alert("hola editame")
+}
+
+
+
+
+/* <form  id="color">
+    <img  type="button"  src="${recipe.val().image}" alt="Recipe Image" style="width:100px;height:100px;"><br>
+    <i class="fas fa-trash-alt"></i>
+    <i class="fas fa-edit"></i>
+    <p>Ingredientes</p><br>
+           <p>${recipe.val().Ingredients}</p><br>
+           <p>Instrucciones</p>
+           <p id="recipes_${recipe.val().Key}">${recipe.val().recipes}</p><br>
+
+</form> */
 
 var uploader = document.getElementById('uploader');
 var fileButton = document.getElementById('fileButton');
@@ -256,3 +396,5 @@ registerButton.addEventListener('click', registerWithEmailAndPassword);
 loginButton.addEventListener('click', loginUserWithEmailAndPassword);
 sendRecipe.addEventListener('click', saveRecipesIntoDatabase);
 
+document.getElementById('save').addEventListener('click',editRecipe);
+document.getElementsByClassName("close")[0].addEventListener("click", cerrarModal);
