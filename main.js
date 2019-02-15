@@ -216,7 +216,7 @@ function onImgClick(e) {
  form1.appendChild(i);
  i.setAttribute("id","delete_"+key)
  document.getElementById("delete_"+key).addEventListener('click', erase)
- //i.id='card_'+key; //esto le da un id a cada tarjeta..
+ //i.id='card_'+recipe.value().key; //esto le da un id a cada tarjeta..
 
  //editar
  const i2=document.createElement('i');
@@ -309,6 +309,7 @@ function openModal(event){
    }
 
    function erase(event){
+   
     var id2 = event.currentTarget.id.replace('delete_','');
     var eliRecipe=firebase.database().ref('recipe/'+id2);
     eliRecipe.remove()
