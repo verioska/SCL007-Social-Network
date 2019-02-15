@@ -3,19 +3,17 @@ document.getElementById("page1").style.display="none"
 document.getElementById("home").addEventListener("click", function(){
   document.getElementById("root").style.display="block" 
   document.getElementById("page3").style.display="none"
- 
+  document.getElementById("root2").style.display="none"
+  
 })
 
 document.getElementById("mas").addEventListener("click", function(){
   document.getElementById("page3").style.display="block"
   document.getElementById("root").style.display="none"
+  document.getElementById("root2").style.display="none"
+  document.getElementById("myModal").style.display="none"
 })
 
-// document.getElementById("loginButton").addEventListener("click", function(){
-//   document.getElementById("page3").style.display="none"
-//   document.getElementById("root").style.display="block"
-  
-// })
 
 
 document.getElementById("close_profile").addEventListener("click", function(){
@@ -74,8 +72,6 @@ const loginUser = (email, password) => {
 //data.js
 
 
-
-
 let newRecipeKey = "";
 const saveRecipe = (recipeTitle, recipeImage, ownerName, insRecipe, recipeIngredients, recipeServes, prepTime, recipeCost) => {
   newRecipeKey = firebase.database().ref('recipe/boasfdisfbsfahb').child('likes').push().key;
@@ -106,6 +102,9 @@ const updateRecipe=(childSnapshot, prevChildKey)=>{
 const containerRoot = document.getElementById('root');
 
 const readRecipesFromDatabase = () => {
+
+  
+  
     let recipeRef = firebase.database().ref('recipe');
     recipeRef.on("child_added", function(recipe){
       // container2=document.getElementById('div');
@@ -121,6 +120,7 @@ const readRecipesFromDatabase = () => {
 
       const p=document.createElement('p');
       form.appendChild(p);
+      p.setAttribute("id","name")
       const nameProfile=document.createTextNode(recipe.val().owner);
       p.appendChild(nameProfile);
 
@@ -161,19 +161,21 @@ const readRecipesFromDatabase = () => {
       const userProfile=document.createTextNode(recipe.val().serves);
       i4.appendChild(userProfile);
 
-      const likeButton = document.createElement('button');
+      const likeButton = document.createElement('i');
+      likeButton.setAttribute('class',"fas fa-thumbs-up")
       likeButton.setAttribute('id', "like"+recipe.key);
       form.appendChild(likeButton);
-      const likeButtonText = document.createTextNode('click');
-      likeButton.appendChild(likeButtonText)
+      
       likeButton.id = "like"+recipe.key;
       likeButton.oid = recipe.key;
       likeButton.title = recipe.val().title;
       likeButton.likeCount = recipe.likeCount;
       likeButton.onclick = onLikeClick;
+      likeButton.nid='number'+recipe.key;
       
       const likeNumberP = document.createElement('p');
       likeNumberP.setAttribute('id', 'number'+recipe.key)
+      likeNumberP.setAttribute('class', 'numberLike')
       form.appendChild(likeNumberP);
       
       const likeNumber = document.createTextNode(recipe.val().likesCount);
@@ -196,7 +198,7 @@ function onImgClick(e) {
  document.getElementById("root").style.display="none";
  document.getElementById("root2").style.display="block";
  const form1 = document.createElement('form');
- form1.setAttribute('id',"color");
+ form1.setAttribute('id',"card");
  containerRoot2.appendChild(form1);
 
  const img=document.createElement('img')
@@ -233,6 +235,7 @@ function onImgClick(e) {
  const nameProfile=document.createTextNode(Ingredients);
  p.appendChild(nameProfile);
  p.setAttribute("id","ingredients_"+key)
+ p.setAttribute("class","ingre")
 
  const br=document.createElement('br');
  form1.appendChild(br);
@@ -249,6 +252,7 @@ function onImgClick(e) {
  const recipesProfile=document.createTextNode(recipes);
  pRecipes.appendChild(recipesProfile);
  pRecipes.setAttribute("id","recipes_"+key)
+ pRecipes.setAttribute("class","ingre")
 }
 
 function onLikeClick(e) {

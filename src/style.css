@@ -1,78 +1,47 @@
 body {
-    background-image: url("https://slack-redir.net/link?url=https%3A%2F%2Fi.pinimg.com%2Foriginals%2Fdf%2Ffc%2Fa7%2Fdffca74282382587f9b3d221a5c6593c.jpg");  
+    background-image: url("https://slack-redir.net/link?url=https%3A%2F%2Fi.pinimg.com%2Foriginals%2Fdf%2Ffc%2Fa7%2Fdffca74282382587f9b3d221a5c6593c.jpg"); 
     background-repeat: repeat-y ;
-    background-size: 120%;   
+    background-size: 120%;  
 }
+input{
+    outline: none;
+    border-radius: 5px;
+}
+/*Primera pagina de registro*/
 #title{
-    margin-left: 30px;
-    width: 300px;
+    width: 331px;
+    margin-left: 470;
+    margin-top: 8%;
 }
-.imgRecipe{
-   cursor: e-resize;
+.inputWithIcon i{
+    position: relative;
+    top: -18px;
+    margin-left: 175px;  
 }
-#page1{
-    display: none;
+.fas.fa-unlock-alt, .fas.fa-envelope{
+    margin-top: 0%;
+    margin-left: 90%;
 }
-#registry{
-    margin-left: 605px;
-    margin-top: 3%
-}
-#menumain{
-    padding: 0px;
-    margin-left: 1%;
-} 
-.menu{
-    text-align:center;
-    font-size: 18px;
-    padding: 2% 2%;
-    margin-top: 3%
-}
-header {
-    background-color:#A40C0C ;
-    height: 70px;
-    
-}
-.icono{
-    color: white;
-    padding: 3%;
-    
-}
-h1{ 
-    margin-left: 550px; 
-    margin-top: 15%;
-    width: auto;
-    color:#F6F6F6;
-    font-size:50px;
-    text-transform: uppercase;  
-}
-h2{
-    margin-left: 500px; 
-    margin-top: 15%;
-    width: auto;
-    color:#F6F6F6;
-    font-size:30px;
-    text-transform: uppercase;  
+.field{
+    width: 200px  
 }
 #button{
     margin-left: 20px;
     margin-top: 1%;
 }
 #registerButton,#loginButton{
-  border-radius: 4px;
-  background-color:white;
-  border: none;
-  color: black;
-  text-align: center;
-  font-size: 15px;
-  padding: 3px;
-  width: 80px;
-  cursor: pointer;
+ border-radius: 4px;
+ background-color:white;
+ border: none;
+ color: black;
+ text-align: center;
+ font-size: 15px;
+ padding: 3px;
+ width: 80px;
+ cursor: pointer;
 }
 #passwordTextfield{
-    margin-top: 1%;  
-}
-#registerButton{
-    margin-top: 3%;
+    margin-top: 1%; 
 }
 #facebook{
     background-image: url("https://cdn.icon-icons.com/icons2/478/PNG/128/facebook_47004.png");
@@ -94,52 +63,82 @@ h2{
     background-position:center;
     border-radius: 35px;
 }
-form{
+#registryUser{
     background-color:rgb(209, 30, 7);
     width: 250px;
     margin: 0 auto;
     padding: 2%;
-    border-radius: 10px;     
+    border-radius: 10px;   
 }
+#page1{
+    display: none;
+}
+/*Parte del menu*/
+header {
+    background-color:rgb(209, 30, 7);
+    height: 70px;
+}
+#imgLogo{
+    margin-top: -16%; 
+    margin-right: 259px;
+    margin-left: -874px;
+}
+.logo{
+    width: 10%;
+    margin-top: 103px;
+    margin-left: 60px;
+}
+#menumain{
+    padding: 0px;
+    margin-left: 65%;
+}
+.menu{
+    text-align:center;
+    font-size: 18px;
+    padding: 1% 2%;
+    margin-top: 3%
+}
+.icono{
+    color: white;
+    padding: 3%;
+}
+/*Estilo de la tarjeta donde se imprime la primera informacion */
 .infoUser{
-    background-color:white;
+    background-color: white;
     margin-top: 3%;
-   
+    width: 60%;
+    height: 171px;
+    margin-left: 400px;
+    display: inline-block;  
+}
+.fas.fa-thumbs-up{
+margin-left: 3%;
+}
+.numberLike{
+        margin-left: 37%;
+        margin-top: -20px;
+}
+.far.fa-user{
+    margin-left: 128px;
+    margin-top: 5%;
+}
+#name{
+    margin-left: 126px;
+    width: 2px;
+    margin-top: 1%;
     
 }
-#color{
-    background-color:white;
-    width: 280px;
-    height:505px;   
-} 
-.fas.fa-trash-alt{
-    margin-left: 80px
-}
-.fas.fa-edit{
-    margin-left: 10px
-}
 .title-class{
-    margin-left: 75px;
+    margin-left: 127px;
 }
 .img-class{
-    margin-left: 60px; 
+    margin-left: 10px; 
+    margin-top: -60px;
 }
 .iconoRecipes{
-    margin-top: 5%;
-    padding: 2px;
-    margin-left: 1px; 
-}
-input{
-    outline: none;
-    border-radius: 5px;
-}
-.field{
- width: 200px    
-}
-.inputWithIcon i{
-    position: relative;
-    top: -18px;
-    margin-left: 175px;  
+    margin-top: 2%;
+    padding: 3px;
+    margin-left: 14px; 
 }
 /* #root{
     display: flex;
@@ -149,34 +148,61 @@ input{
     align-items: baseline;
     margin-top: 5%; 
 } */
+/*Estilo de la tarjeta donde se imprime los ingredientes, instrucciones , edita y borra */
+#card{
+    background-color:white;
+    width: 280px;
+    height:505px; 
+    margin-left: 550px;
+    margin-top: 5%;
+} 
+h4{
+    margin-top: 4%;
+    margin-left: 8%;
+}
+.ingre{
+    margin-left: 8%; 
+}
+.fas.fa-trash-alt{
+    margin-left: 100px
+}
+.fas.fa-edit{
+    margin-left: 10px
+}
+.img-class1{
+    margin-top: 13%;
+    margin-left: 21;
+}
+  
+/*Estilo de la tareta donde se ingresa los datos de las receta y envia foto*/
 #enter-login{
     background-color:#918A8A;
-    width: 1150px;
+    width: 351px;
     margin: 0 auto;
     padding: 2%;
     border-radius: 10px;
     margin-top: 5%;
- } 
-.container-fluid{
-    display: flex;
-    flex-direction: row;
-    align-content: flex-end;
-    flex-wrap: wrap;
-    align-items: baseline;
- }
+} 
+p{
+  margin-left: 30%;
+}
+#portions{
+    margin-left: 41%;
+}
+#cost{
+    margin-left: 41%;
+}
+#ingre{
+    margin-left: 41%;
+}
+#titleRecipe{
+    margin-left: 25%;
+}
+#idServes,#idTime,#idCost{
+    margin-left: 25%;
+}
 #sendRecipe{
-  margin-top: 5%;
-  border-radius: 4px;
-   background-color:white;
-   border: none;
-   color: black;
-   text-align: center;
-   font-size: 15px;
-   padding: 3px;
-   width: 80px;
-   cursor: pointer;
-}  
-#close{
+    margin-top: 5%;
     border-radius: 4px;
     background-color:white;
     border: none;
@@ -184,26 +210,26 @@ input{
     text-align: center;
     font-size: 15px;
     padding: 3px;
-    width: 100px;
+    width: 80px;
     cursor: pointer;
-    margin-top:-30%;
-    margin-left: 87%;
-    
+    margin-left: 131px;
+} 
+#app4{
+    margin-left: 145px;
+}
+#uploader{
+    margin-left: 94px;
 }
 #idIngredients, #insRecipes{
     border-radius: 5px;
+    margin-left: 16%;
 }
-.form{
-    margin-left: 2%;
-     
-}
+ 
 .upload{
     margin-top: 1%;
 }
-
-
-/* The Modal (background) */
-.modal {
+  /* The Modal (background) */
+  .modal {
     display: none; /* Hidden by default */
     position: fixed; /* Stay in place */
     z-index: 1; /* Sit on top */
@@ -214,35 +240,34 @@ input{
     overflow: auto; /* Enable scroll if needed */
     background-color: rgb(0,0,0); /* Fallback color */
     background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
-  }
- 
-  /* Modal Content/Box */
-  .modal-content {
+   }
+   
+   /* Modal Content/Box */
+   .modal-content {
     background-color: #fefefe;
     margin: 15% auto; /* 15% from the top and centered */
     padding: 20px;
-    border: 1px solid #888;
-    width: 80%; /* Could be more or less, depending on screen size */
-  }
- 
-  /* The Close Button */
-  .close {
+    border: 1px solid #888; 
+    width: 24%;
+    margin-left: 542px;
+    margin-top:10%;
+   }
+   
+   /* The Close Button */
+   .close {
     color: #aaa;
     float: right;
     font-size: 28px;
     font-weight: bold;
-  }
- 
-  .close:hover,
-  .close:focus {
+   }
+   
+   .close:hover,
+   .close:focus {
     color: black;
     text-decoration: none;
     cursor: pointer;
-  }
-
-
-
-  .likeHeart{
-      height: 15px;
-      width: auto;
-  }
+   }
+   .likeHeart{
+     height: 15px;
+     width: auto;
+   }
