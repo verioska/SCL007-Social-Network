@@ -86,9 +86,9 @@
   .infoUser{
     background-color: white;
     margin-top: 3%;
-    width: 96%;
-    height: 170px;
-    margin-left: 15px;
+    width: 95%;
+    height: 172px;
+    margin-left: 9px;
     display: inline-block;
   }
   .iconoRecipes{
@@ -97,8 +97,8 @@
     margin-left: 6px; 
   }
   .numberLike{
-    margin-left: 92%;
-    margin-top: -22px;
+    margin-left: 96%;
+    margin-top: -20px;
     width: 25%;
   }
   #card{
