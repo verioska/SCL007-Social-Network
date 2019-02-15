@@ -38,7 +38,7 @@ header {
     
 }
 h1{ 
-    margin-left: 550px;
+    margin-left: 550px; 
     margin-top: 15%;
     width: auto;
     color:#F6F6F6;
@@ -46,7 +46,7 @@ h1{
     text-transform: uppercase;  
 }
 h2{
-    margin-left: 500px;
+    margin-left: 500px; 
     margin-top: 15%;
     width: auto;
     color:#F6F6F6;
@@ -99,17 +99,19 @@ form{
     width: 250px;
     margin: 0 auto;
     padding: 2%;
-    border-radius: 10px;    
+    border-radius: 10px;     
 }
 .infoUser{
     background-color:white;
+    margin-top: 3%;
+   
     
 }
 #color{
     background-color:white;
     width: 280px;
     height:505px;   
-}
+} 
 .fas.fa-trash-alt{
     margin-left: 80px
 }
@@ -139,14 +141,14 @@ input{
     top: -18px;
     margin-left: 175px;  
 }
-#root{
+/* #root{
     display: flex;
     flex-direction: row;
     align-content: flex-end;
     flex-wrap: wrap;
     align-items: baseline;
     margin-top: 5%; 
-}
+} */
 #enter-login{
     background-color:#918A8A;
     width: 1150px;
@@ -154,8 +156,8 @@ input{
     padding: 2%;
     border-radius: 10px;
     margin-top: 5%;
- }
-.container-fluid2{
+ } 
+.container-fluid{
     display: flex;
     flex-direction: row;
     align-content: flex-end;
@@ -236,4 +238,11 @@ input{
     color: black;
     text-decoration: none;
     cursor: pointer;
+  }
+
+
+
+  .likeHeart{
+      height: 15px;
+      width: auto;
   }

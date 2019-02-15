@@ -1,7 +1,7 @@
 document.getElementById("page1").style.display="none"
 
 document.getElementById("home").addEventListener("click", function(){
-  document.getElementById("root").style.display="block"
+  document.getElementById("root").style.display="block" 
   document.getElementById("page3").style.display="none"
  
 })
@@ -39,13 +39,13 @@ document.getElementById("close_profile").addEventListener("click", function(){
 const checkAuthState = (callback) => {
   firebase.auth().onAuthStateChanged((user)=>{
     if(user){
-      console.log("Hay un usuario > "+JSON.stringify(user));
-      callback(user);
-      document.getElementById("page3").style.display="none"
-      document.getElementById("root").style.display="block"
+        console.log("Hay un usuario > "+JSON.stringify(user));
+        callback(user);
+        document.getElementById("page3").style.display="none"
+        document.getElementById("root").style.display="block" 
     }else{
-      console.log("No está logueado");
-      callback(null);
+        console.log("No está logueado");
+        callback(null);
     }
   })
 };
@@ -81,6 +81,7 @@ const saveRecipe = (recipeTitle, recipeImage, ownerName, insRecipe, recipeIngred
   newRecipeKey = firebase.database().ref('recipe/boasfdisfbsfahb').child('likes').push().key;
 
   firebase.database().ref(`recipe/${newRecipeKey}`).set({
+    likesCount : 0,
     title : recipeTitle,
     image : recipeImage,
     owner : ownerName,
@@ -99,7 +100,7 @@ const updateRecipe=(childSnapshot, prevChildKey)=>{
     console.log(childSnapshot, prevChildKey);
     document.getElementById('recipes_'+childSnapshot.key).innerHTML= recipe.recipes;
     document.getElementById('ingredients_'+childSnapshot.key).innerHTML=recipe.Ingredients;
-   };
+};
 
 
 const containerRoot = document.getElementById('root');
@@ -160,6 +161,24 @@ const readRecipesFromDatabase = () => {
       const userProfile=document.createTextNode(recipe.val().serves);
       i4.appendChild(userProfile);
 
+      const likeButton = document.createElement('button');
+      likeButton.setAttribute('id', "like"+recipe.key);
+      form.appendChild(likeButton);
+      const likeButtonText = document.createTextNode('click');
+      likeButton.appendChild(likeButtonText)
+      likeButton.id = "like"+recipe.key;
+      likeButton.oid = recipe.key;
+      likeButton.title = recipe.val().title;
+      likeButton.likeCount = recipe.likeCount;
+      likeButton.onclick = onLikeClick;
+      
+      const likeNumberP = document.createElement('p');
+      likeNumberP.setAttribute('id', 'number'+recipe.key)
+      form.appendChild(likeNumberP);
+      
+      const likeNumber = document.createTextNode(recipe.val().likesCount);
+      likeNumberP.appendChild(likeNumber);
+
       let list = document.getElementById("root");
       list.insertBefore(form, list.childNodes[0]);
 });
@@ -185,7 +204,7 @@ function onImgClick(e) {
  img.setAttribute('alt',"Recipe Image");
  img.setAttribute('style',"width:100px;height:100px;");
  img.setAttribute('src',image);
- img.setAttribute('type',button);
+ img.setAttribute('type',button); //button not defined
  form1.appendChild(img);
 
  //eliminar
@@ -232,6 +251,24 @@ function onImgClick(e) {
  pRecipes.setAttribute("id","recipes_"+key)
 }
 
+function onLikeClick(e) {
+    let key = e.target.id;
+    let oriKey = e.target.oid;
+    let numberKey = e.target.nid; 
+    document.getElementById(key).style.background = "lightblue";
+    firebase.database().ref(`recipe/${oriKey}`).child(`likes/${firebase.auth().currentUser.uid}`).set({
+      user: firebase.auth().currentUser.uid,
+    }); 
+    firebase.database().ref(`recipe/${oriKey}`).child("likes").on("value", function(snapshot) {
+      firebase.database().ref(`recipe/${oriKey}`).update({
+        likesCount : snapshot.numChildren(),
+      })
+      console.log("There are "+snapshot.numChildren()+" likes");
+      document.getElementById(numberKey).innerHTML = "";
+      document.getElementById(numberKey).innerHTML = snapshot.numChildren(); 
+    });
+  }
+
 function openModal(event){
 
    var id = event.currentTarget.id.replace('edit_','');
@@ -251,7 +288,7 @@ function openModal(event){
    }
    
    
-   function editRecipe(event){
+   function editRecipe(event){ //never used
    
    var id = document.getElementById('edit-key').value;
    var recipeRef = firebase.database().ref('recipe/'+id);
@@ -265,7 +302,7 @@ function openModal(event){
 
 
 //click al icono eliminar
-function oniClick(e){
+/* function oniClick(e){
 
   alert("hola")
 }
@@ -274,7 +311,7 @@ function oniClick(e){
 function oni2Click(e){
 
   alert("hola editame")
-}
+} */
 
 
 
@@ -370,14 +407,6 @@ loginUser(emailFromUser, passwordFromUser);
 
 };
 
-
-
-//nueva 
-const saveUserIntoDatabase = () => {
-  const userId = firebase.auth().currentUser.uid;
-  const userEmail = firebase.auth().currentUser.email;
-  saveUser(userId, userEmail);
-}
 
 const saveRecipesIntoDatabase = () => {
 const recipeTitle = titleRecipe.value;
