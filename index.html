@@ -12,7 +12,7 @@
 <body id="body">
   <div id="loginOrRegister">
     <h1 ><img id="title" src="logo_sabores.png" alt=""></h1>
-    <form id="registry" action="javascript:void(0)">
+    <form id="registryUser" action="javascript:void(0)">
       <div class="inputWithIcon">
         <input id="emailTextfield" type="email" class="field" placeholder="Ingresa email">
         <i class="fas fa-envelope"></i>
@@ -60,22 +60,24 @@
                 <a href="#" id="home" class="menu"><i class="fas fa-home icono" ></i></a>
                 <a href="#" id="mas" class="menu"><i class="far fa-plus-square icono"></i></a>
                 <a href="#" id="close_profile" class="menu"><i class="fas fa-sign-out-alt icono"></i></a> 
-                
+                <div id="imgLogo">
+                  <a><img  class="logo" src="logo_sabores.png" alt=""></a>
+                </div>
             </div>
           </div>
       </header>
      
   <div id="page3"> 
-    <h2>¡Bienvenid@ a SABORES!</h2>
+    
     <form id="enter-login" class="container-fluid2">
       <div id="app1">
         <p>Nombre de tu receta</p>
         <input id="titleRecipe" type="text">
-        <p>Porciones</p>
+        <p id="portions">Porciones</p>
         <input id="idServes" type="text">
         <p>Tiempo de Preparación</p>
         <input id="idTime" type="text">
-        <p>costo estimado</p>
+        <p id="cost">costo estimado</p>
         <input id="idCost" type="text">
       </div>
       <div id="app2" class="form ingridients">
@@ -102,7 +104,6 @@
   
 <!-- The Modal -->
 <div id="myModal" class="modal">
-
         <!-- Modal content -->
         <div class="modal-content">
           <span class="close">&times;</span>
@@ -117,17 +118,11 @@
         </div>
        
        </div>
-
-
-    <div id="root" class="container-fluid">
-
+    <div id="root" >
     </div>
-
   
   <div id="root2" ></div>
-
   <script src="https://www.gstatic.com/firebasejs/5.8.2/firebase.js"></script>
-
   <script>
     // Initialize Firebase
     var config = {
