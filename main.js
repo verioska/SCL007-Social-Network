@@ -120,6 +120,7 @@ const readRecipesFromDatabase = () => {
 
       const p=document.createElement('p');
       form.appendChild(p);
+      p.setAttribute("id","name")
       const nameProfile=document.createTextNode(recipe.val().owner);
       p.appendChild(nameProfile);
 
@@ -160,19 +161,21 @@ const readRecipesFromDatabase = () => {
       const userProfile=document.createTextNode(recipe.val().serves);
       i4.appendChild(userProfile);
 
-      const likeButton = document.createElement('button');
+      const likeButton = document.createElement('i');
+      likeButton.setAttribute('class',"fas fa-thumbs-up")
       likeButton.setAttribute('id', "like"+recipe.key);
       form.appendChild(likeButton);
-      const likeButtonText = document.createTextNode('click');
-      likeButton.appendChild(likeButtonText)
+      
       likeButton.id = "like"+recipe.key;
       likeButton.oid = recipe.key;
       likeButton.title = recipe.val().title;
       likeButton.likeCount = recipe.likeCount;
       likeButton.onclick = onLikeClick;
+      likeButton.nid='number'+recipe.key;
       
       const likeNumberP = document.createElement('p');
       likeNumberP.setAttribute('id', 'number'+recipe.key)
+      likeNumberP.setAttribute('class', 'numberLike')
       form.appendChild(likeNumberP);
       
       const likeNumber = document.createTextNode(recipe.val().likesCount);
