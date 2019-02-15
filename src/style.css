@@ -127,14 +127,12 @@ header {
 /*Estilo de la tarjeta donde se imprime la primera informacion */
 
 .infoUser{
-    
     background-color: white;
-    margin-top: 15%;
-    width: 348%;
-    height: 161px;
-    margin-left: 460px;
-    display: table-caption;
-    
+    margin-top: 3%;
+    width: 60%;
+    height: 171px;
+    margin-left: 400px;
+    display: inline-block;  
 }
 
 .fas.fa-thumbs-up{
@@ -142,8 +140,8 @@ margin-left: 3%;
 }
 
 .numberLike{
-    margin-left: 44%;
-    margin-top: -20px;
+        margin-left: 37%;
+        margin-top: -20px;
 }
 
 .far.fa-user{
@@ -219,13 +217,38 @@ h4{
 
 #enter-login{
     background-color:#918A8A;
-    width: 1150px;
+    width: 351px;
     margin: 0 auto;
     padding: 2%;
     border-radius: 10px;
     margin-top: 5%;
 } 
- 
+
+p{
+  margin-left: 30%;
+}
+
+#portions{
+    margin-left: 41%;
+}
+
+#cost{
+    margin-left: 41%;
+}
+
+#ingre{
+    margin-left: 41%;
+}
+
+
+#titleRecipe{
+    margin-left: 25%;
+}
+
+#idServes,#idTime,#idCost{
+    margin-left: 25%;
+}
+
 #sendRecipe{
     margin-top: 5%;
     border-radius: 4px;
@@ -237,10 +260,20 @@ h4{
     padding: 3px;
     width: 80px;
     cursor: pointer;
+    margin-left: 131px;
 } 
+
+#app4{
+    margin-left: 145px;
+}
+
+#uploader{
+    margin-left: 94px;
+}
 
 #idIngredients, #insRecipes{
     border-radius: 5px;
+    margin-left: 16%;
 }
  
 .upload{
