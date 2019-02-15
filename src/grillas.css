@@ -86,9 +86,9 @@
   .infoUser{
     background-color: white;
     margin-top: 3%;
-    width: 89%;
-    height: 172px;
-    margin-left: 30px;
+    width: 96%;
+    height: 170px;
+    margin-left: 15px;
     display: inline-block;
   }
   .iconoRecipes{
@@ -97,8 +97,8 @@
     margin-left: 6px; 
   }
   .numberLike{
-    margin-left: 80%;
-    margin-top: -20px;
+    margin-left: 92%;
+    margin-top: -22px;
     width: 25%;
   }
   #card{
@@ -169,7 +169,7 @@
       margin-top: 42%;
   }
   #emailTextfield,#passwordTextfield{
-    height:6% ;
+    height:7% ;
   }
   #registerButton, #loginButton {
     border-radius: 4px;
