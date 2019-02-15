@@ -1,3 +1,4 @@
+
 *{
     box-sizing: border-box;
     margin: 0;
@@ -159,7 +160,7 @@
       margin-left: 95px; 
   }
   .fas.fa-unlock-alt, .fas.fa-envelope{
-    margin-top: 0%;
+    margin-top: -5%;
     margin-left: 83%;
   }
   #title{
@@ -167,5 +168,21 @@
       margin-left: 94px;
       margin-top: 42%;
   }
+  #emailTextfield,#passwordTextfield{
+    height:6% ;
   }
+  #registerButton, #loginButton {
+    border-radius: 4px;
+    background-color: white;
+    border: none;
+    color: black;
+    text-align: center;
+    font-size: 15px;
+    padding: 3px;
+    width: 80px;
+    cursor: pointer;
+    height: 5%;
+  }
+  }
+  
   
