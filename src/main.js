@@ -210,11 +210,13 @@ function onImgClick(e) {
  form1.appendChild(img);
 
  //eliminar
+
  const i=document.createElement('i');
  i.setAttribute('class',"fas fa-trash-alt iconoIngredients");
  form1.appendChild(i);
  i.setAttribute("id","delete_"+key)
- //document.getElementById("delete_"+key).addEventListener('click', erase)
+ document.getElementById("delete_"+key).addEventListener('click', erase)
+ //i.id='card_'+key; //esto le da un id a cada tarjeta..
 
  //editar
  const i2=document.createElement('i');
@@ -290,6 +292,8 @@ function openModal(event){
    modal.style.display = "none";
    
    }
+
+
    
    
    function editRecipe(event){ //never used
@@ -304,32 +308,20 @@ function openModal(event){
    });
    }
 
-
-//click al icono eliminar
-/* function oniClick(e){
-
-  alert("hola")
-}
-
-//click al icono editar
-function oni2Click(e){
-
-  alert("hola editame")
-} */
-
-
-
-
-/* <form  id="color">
-    <img  type="button"  src="${recipe.val().image}" alt="Recipe Image" style="width:100px;height:100px;"><br>
-    <i class="fas fa-trash-alt"></i>
-    <i class="fas fa-edit"></i>
-    <p>Ingredientes</p><br>
-           <p>${recipe.val().Ingredients}</p><br>
-           <p>Instrucciones</p>
-           <p id="recipes_${recipe.val().Key}">${recipe.val().recipes}</p><br>
-
-</form> */
+   function erase(event){
+    var id2 = event.currentTarget.id.replace('delete_','');
+    var eliRecipe=firebase.database().ref('recipe/'+id2);
+    eliRecipe.remove()
+    .then(function() {
+      console.log("Remove succeeded.");
+      var card = document.getElementById('card_'+id2);
+      card.remove();
+    })
+    .catch(function(error) {
+      console.log("Remove failed: " + error.message)
+    });
+ 
+  }
 
 var uploader = document.getElementById('uploader');
 var fileButton = document.getElementById('fileButton');
