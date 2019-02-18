@@ -112,6 +112,7 @@ const readRecipesFromDatabase = () => {
 
       const form = document.createElement('form');
       form.setAttribute('class',"infoUser");
+      form.id='form_'+recipe.val().Key;
       containerRoot.appendChild(form);
 
       const i=document.createElement('i');
@@ -199,6 +200,8 @@ function onImgClick(e) {
  document.getElementById("root2").style.display="block";
  const form1 = document.createElement('form');
  form1.setAttribute('id',"card");
+ //se limpia el contenedor para que no se acumulen las recetas
+ containerRoot2.innerHTML = '';
  containerRoot2.appendChild(form1);
 
  const img=document.createElement('img')
@@ -305,6 +308,14 @@ function openModal(event){
    var ingredientsNuevo=document.getElementById('idIngredientsE').value
    recipeRef.update({recipes: recipesnuevo,Ingredients:ingredientsNuevo},()=>{
    cerrarModal();
+   //falta actualizar data
+   // Se actualiza la data original de la lista (imagen.recipes y imagen.Ingredients)
+   document.getElementById(id).Ingredients = ingredientsNuevo;
+   document.getElementById(id).recipes = recipesnuevo;
+   //Se actualiza tarjeta de edcion (root2)
+   document.getElementById('ingredients_'+id).innerHTML=ingredientsNuevo;
+   document.getElementById('recipes_'+id).innerHTML = recipesnuevo;
+
    });
    }
 
@@ -314,12 +325,19 @@ function openModal(event){
     var eliRecipe=firebase.database().ref('recipe/'+id2);
     eliRecipe.remove()
     .then(function() {
-      console.log("Remove succeeded.");
-      var card = document.getElementById('card_'+id2);
+      
+      var card = document.getElementById('form_'+id2);
       card.remove();
+      document.getElementById("root").style.display="block";
+      document.getElementById("page3").style.display="none";
+      document.getElementById("root2").style.display="none";
+      alert("Receta Eliminada correctamente");
     })
     .catch(function(error) {
-      console.log("Remove failed: " + error.message)
+      document.getElementById("root").style.display="block";
+      document.getElementById("page3").style.display="none";
+      document.getElementById("root2").style.display="none";
+      alert("Ha ocurrido el siguiente error: " + error.message)
     });
  
   }
