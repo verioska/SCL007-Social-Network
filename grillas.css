@@ -1,5 +1,6 @@
 
 *{
+<<<<<<< HEAD
     box-sizing: border-box;
     margin: 0;
     padding: 0;
@@ -186,3 +187,208 @@
   }
   
   
+=======
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+.container{
+  width: 100%;
+  margin: 0 auto;
+}
+
+.row:before, .row:after{
+  content: " ";
+  display: table;
+}
+.row:after{
+  clear: both
+}
+[class*="col-"]{
+  min-height: 7px;
+  padding:12px;
+  max-width: 100%;
+}
+
+.col-1 {
+  /* (1 / 12) x 100 */
+  width: 8.333333%;
+} 
+
+.col-2 {
+  /* (2 / 12) x 100 */
+  width: 16.666667%;
+} 
+
+.col-3 {
+  /* (3 / 12) x 100 */
+  width: 25%;
+} 
+
+.col-4 {
+  /* (4 / 12) x 100 */
+  width: 33.333333%;
+}
+
+.col-5 {
+  /* (5 / 12) x 100 */
+  width: 41.666667%;
+}
+
+.col-6 {
+  /* (6 / 12) x 100 */
+  width: 50%;
+} 
+
+.col-7 {
+  /* (7 / 12) x 100 */
+  width: 58.333333%;
+}
+
+.col-8 {
+  /* (8 / 12) x 100 */
+  width: 66.666667%;
+}
+
+.col-9 {
+  /* (9 / 12) x 100 */
+  width: 75%;
+}
+
+.col-10 {
+  /* (10 / 12) x 100 */
+  width: 83.333333%;
+}
+
+.col-11 {
+  /* (11 / 12) x 100 */
+  width: 91.666667%;
+}
+
+.col-12 {
+  /* (12 / 12) x 100 */
+  width: 100%;
+}
+
+@media only screen and (max-width: 768px) {
+  /* For mobile phones: */
+  [class*="col-"] {
+      width: 100%;
+ }
+
+ #menumain{
+  padding: 0px;
+  margin-left: 6%;
+}
+
+.menu{
+  text-align: center;
+  font-size: 25px;
+  padding: 19% 9%;
+  margin-top: -53%
+}
+
+.infoUser{
+  background-color: white;
+  margin-top: 3%;
+  width: 89%;
+  height: 172px;
+  margin-left: 30px;
+  display: inline-block;
+}
+
+.iconoRecipes{
+  margin-top: 2%;
+  padding: 6px;
+  margin-left: 6px; 
+}
+
+.numberLike{
+  margin-left: 80%;
+  margin-top: -20px;
+  width: 25%;
+}
+
+#card{
+  background-color: white;
+  width: 280px;
+  height: 505px;
+  margin-left: 58px;
+  margin-top: 8%;
+} 
+
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  left: 3%;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+ }
+
+.modal-content {
+  background-color: #fefefe;
+  margin: 15% auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 70%;
+  margin-left: 51px;
+  margin-top: 35%;
+ }
+ 
+ p{
+  margin-left: 30%;
+}
+
+#portions{
+    margin-left: 41%;
+}
+
+#cost{
+    margin-left: 37%;
+}
+
+#ingre{
+    margin-left: 39%;
+}
+
+
+#titleRecipe{
+    margin-left: 25%;
+    height: 27px;
+}
+
+#idServes,#idTime,#idCost{
+    margin-left: 25%;
+    height: 27px;
+}
+
+#registryUser{
+    background-color: rgb(209, 30, 7);
+    width: 226px;
+    margin: 0 auto;
+    padding: 2%;
+    border-radius: 10px;
+    margin-top: 33px;
+    margin-left: 95px; 
+}
+
+.fas.fa-unlock-alt, .fas.fa-envelope{
+  margin-top: 0%;
+  margin-left: 83%;
+}
+
+#title{
+   width: 222px;
+    margin-left: 94px;
+    margin-top: 42%;
+}
+
+}
+
+>>>>>>> ae03272cfcd967e698b8e75fc7e94b055ff4d661
